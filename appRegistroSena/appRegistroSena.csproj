@@ -67,8 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Vista\css\NavbarIndex.css" />
     <Content Include="Vista\css\Principal.css" />
     <Content Include="Vista\css\RegistroObjeto.css" />
+    <Content Include="Vista\Index.aspx" />
     <Content Include="Vista\JavaScript\script.js" />
     <Content Include="Vista\Registrar.aspx" />
     <Content Include="Vista\RegistrarObjetos.aspx" />
@@ -78,6 +80,20 @@
     <Compile Include="Datos\ClConexion.cs" />
     <Compile Include="Datos\ProcesarSQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\NavbarPrincipal.Master.cs">
+      <DependentUpon>NavbarPrincipal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\NavbarPrincipal.Master.designer.cs">
+      <DependentUpon>NavbarPrincipal.Master</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -103,6 +119,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Vista\Principal.Master" />
+    <Content Include="Vista\NavbarPrincipal.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
