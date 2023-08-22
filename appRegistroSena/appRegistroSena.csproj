@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Vista\css\Principal.css" />
     <Content Include="Vista\css\RegistroObjeto.css" />
+    <Content Include="Vista\JavaScript\RegistrarObjeto.js" />
     <Content Include="Vista\JavaScript\script.js" />
     <Content Include="Vista\Registrar.aspx" />
     <Content Include="Vista\RegistrarObjetos.aspx" />
