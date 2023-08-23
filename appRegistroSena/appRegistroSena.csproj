@@ -67,25 +67,42 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+
+    <Content Include="Vista\css\Estilos_MasterAdmon.css" />
+    <Content Include="Vista\css\Estilos_RegistrarPrograma.css" />
+
     <Content Include="Vista\SweetAlert\Scripts\sweetalert-dev.js" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert.min.js" />
     <Content Include="Vista\SweetAlert\Styles\sweetalert.css" />
     <Content Include="Vista\css\Buscar.css" />
+
     <Content Include="Vista\css\Estilos_RegistroUsuario.css" />
     <Content Include="Vista\css\NavbarIndex.css" />
     <Content Include="Vista\css\Principal.css" />
     <Content Include="Vista\css\RegistroObjeto.css" />
+    <Content Include="Vista\Imagenes\14590066_686015764883572_4190911499130567525_o.jpg" />
+    <Content Include="Vista\Imagenes\Logo.png" />
     <Content Include="Vista\Imagenes\Logosimbolo-SENA-PRINCIPAL.png" />
+    <Content Include="Vista\Imagenes\profile.jpg" />
     <Content Include="Vista\JavaScript\RegistrarObjeto.js" />
     <Content Include="Vista\JavaScript\script.js" />
     <Content Include="Vista\Registrar.aspx" />
     <Content Include="Vista\RegistrarObjetos.aspx" />
+    <Content Include="Vista\RegistrarPrograma.aspx" />
     <Content Include="Vista\RegistroUsuarios.aspx" />
     <Content Include="Vista\RegObjeto.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\ClProgramasD.cs" />
     <Compile Include="Datos\ClConexion.cs" />
+ <Compile Include="Datos\ClUsuarioD.cs" />
+    <Compile Include="Datos\ProcesarSQL.cs" />
+    <Compile Include="Entidades\ClProgramasE.cs" />
+    <Compile Include="Entidades\ClUsuarioE.cs" />
+    <Compile Include="Logica\ClProgramasL.cs" />
+    <Compile Include="Logica\ClUsuarioL.cs" />
+
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClPorteriaD.cs" />
     <Compile Include="Datos\ClRegistroD.cs" />
@@ -96,7 +113,15 @@
     <Compile Include="Logica\ClPersonalL.cs" />
     <Compile Include="Logica\ClPorteriaL.cs" />
     <Compile Include="Logica\ClRegistroL.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\Administrador.Master.cs">
+      <DependentUpon>Administrador.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Administrador.Master.designer.cs">
+      <DependentUpon>Administrador.Master</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -118,6 +143,13 @@
     <Compile Include="Vista\RegistrarObjetos.aspx.designer.cs">
       <DependentUpon>RegistrarObjetos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\RegistrarPrograma.aspx.cs">
+      <DependentUpon>RegistrarPrograma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegistrarPrograma.aspx.designer.cs">
+      <DependentUpon>RegistrarPrograma.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\RegistroUsuarios.aspx.cs">
       <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -136,7 +168,12 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Vista\Principal.Master" />
+
+    <Content Include="Vista\Administrador.Master" />
+    <Content Include="Vista\JavaScript\Js._MasterAdmon.js" />
+
     <Content Include="Views\Sweet\Alert.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
