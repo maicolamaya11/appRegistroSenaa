@@ -10,91 +10,61 @@
 
     <!-- ===== CSS ===== -->
     <link href="css/Estilos_RegistroUsuario.css" rel="stylesheet" />
-
-    <title>Login & Registration Form</title>
+    <script src="script.js"></script>
+    <title>Registrar Usuario</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-          <div class="container">
+    
+        <div class="containers" runat="server">
             <div class="forms">
                 <div class="form login">
-                    <span class="title">Login</span>
+                    <span class="title">Registrar Usuario</span>
 
                     <div action="#">
                         <div class="input-field">
-                            <input type="text" placeholder="Enter your email" required>
+                            <input id="txtNombres" runat="server" type="text" placeholder="Nombres" required>
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <div class="input-field">
-                            <input type="password" class="password" placeholder="Enter your password" required>
-                            <i class="uil uil-lock icon"></i>
-                            <i class="uil uil-eye-slash showHidePw"></i>
-                        </div>
-
-                        <div class="checkbox-text">
-                            <div class="checkbox-content">
-                                <input type="checkbox" id="logCheck">
-                                <label for="logCheck" class="text">Remember me</label>
-                            </div>
-
-                            <a href="#" class="text">Forgot password?</a>
-                        </div>
-
-                        <div class="input-field button">
-                            <input type="button" value="Login">
-                        </div>
-                    </div>
-
-                    <div class="login-signup">
-                        <span class="text">Not a member?
-                        <a href="#" class="text signup-link">Signup Now</a>
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Registration Form -->
-                <div class="form signup">
-                    <span class="title">Registration</span>
-
-                    <form action="#">
-                        <div class="input-field">
-                            <input type="text" placeholder="Enter your name" required>
-                            <i class="uil uil-user"></i>
-                        </div>
-                        <div class="input-field">
-                            <input type="text" placeholder="Enter your email" required>
+                            <input id="txtApellidos" runat="server" type="text" placeholder="Apellidos" required>
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <div class="input-field">
-                            <input type="password" class="password" placeholder="Create a password" required>
-                            <i class="uil uil-lock icon"></i>
+                            <input id="txtTelefono" runat="server" type="text" placeholder="Telefono" required>
+                            <i class="uil uil-envelope icon"></i>
                         </div>
                         <div class="input-field">
-                            <input type="password" class="password" placeholder="Confirm a password" required>
+                            <input id="txtEmail" runat="server" type="text" placeholder="Email" required>
+                            <i class="uil uil-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <input id="txtClave" type="password" runat="server" class="password" placeholder="Contraseña" required>
                             <i class="uil uil-lock icon"></i>
                             <i class="uil uil-eye-slash showHidePw"></i>
                         </div>
-
-                        <div class="checkbox-text">
-                            <div class="checkbox-content">
-                                <input type="checkbox" id="termCon">
-                                <label for="termCon" class="text">I accepted all terms and conditions</label>
-                            </div>
+                        <div class="input-field">
+                            <input id="txtDocumento" runat="server" type="text" placeholder="Documento" required>
+                            <i class="uil uil-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                            <asp:Label ID="Label1" runat="server" Text="Rol: "></asp:Label>
+                            <select id="ddlRol" name="rol" runat="server">
+                                <option value="Seleccionar Rol">Seleccionar Rol</option>
+                                <option value="administrador">Administrador</option>
+                                <option value="aprendiz">Aprendiz</option>
+                                <option value="coordinador">Coordinador</option>
+                            </select>
                         </div>
 
                         <div class="input-field button">
-                            <input type="button" value="Signup">
+                            <asp:Button ID="btnRegistrar" type="button" value="Login" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" />
                         </div>
-                    </form>
-
-                    <div class="login-signup">
-                        <span class="text">Already a member?
-                        <a href="#" class="text login-link">Login Now</a>
-                        </span>
                     </div>
                 </div>
             </div>
         </div>
-
-        <script src="script.js"></script>
-</asp:Content>
+  
+    </asp:Content>
+    
+        
