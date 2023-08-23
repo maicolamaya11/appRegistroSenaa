@@ -76,6 +76,7 @@
     <Content Include="Vista\Imagenes\centro.jpg" />
     <Content Include="Vista\Imagenes\jocvenes.jpg" />
     <Content Include="Vista\Imagenes\Logosimbolo-SENA-PRINCIPAL.png" />
+    <Content Include="Vista\Imagenes\nostros.png" />
     <Content Include="Vista\Imagenes\sena.png" />
     <Content Include="Vista\Imagenes\senacentro.png" />
     <Content Include="Vista\Index.aspx" />

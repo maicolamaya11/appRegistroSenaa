@@ -1,25 +1,45 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/NavbarPrincipal.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="appRegistroSena.Vista.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/Carrusel.css" rel="stylesheet" />
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <section id="seccion12" class="section">
-  
-  <div class="slider">
-    <div class="slider-slides">
-      <div class="slider-slide active">
-        <img src="Imagenes/jocvenes.jpg" alt="animals">
-      </div>
-      <div class="slider-slide">
-        <img src="Imagenes/senacentro.png" alt="nature">
-      </div>
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="Imagenes/senacentro.png" class="d-block w-100" alt="...">
     </div>
-    <div class="slider-btns">
-      <a class="prev" href="#">&laquo;</a>
-      <a class="next" href="#">&raquo;</a>
+    <div class="carousel-item">
+      <img src="" />  class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
     </div>
   </div>
+</div>
 </section>
+      <!-- about -->
+      <div id="about" class="about">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                  <div class="titlepage">
+                     <h2>About <span class="green">Us</span></h2>
+                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humourThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+                     <a class="read_more" href="Javascript:void(0)"> Read More</a>
+                  </div>
+               </div>
+               <div class="col-md-7">
+                  <div class="about_img">
+                     <figure><img src="Imagenes/centro.jpg" alt="#"/></figure>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end about -->
+
+
     <script>
     const d = document;
 

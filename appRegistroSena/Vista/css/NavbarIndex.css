@@ -457,12 +457,12 @@ button {
 
 .about {
     background-color: #fff;
-    padding-top: 95px;
+    padding-top: 10px;
 }
 
     .about .titlepage {
         text-align: left;
-        margin-top: 41%;
+        margin-top: 15%;
         padding-bottom: 0;
         margin-right: -20px;
     }
