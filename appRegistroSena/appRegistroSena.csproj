@@ -69,10 +69,12 @@
   <ItemGroup>
     <Content Include="Vista\css\Principal.css" />
     <Content Include="Vista\css\RegistroObjeto.css" />
+    <Content Include="Vista\Imagenes\Logosimbolo-SENA-PRINCIPAL.png" />
     <Content Include="Vista\JavaScript\RegistrarObjeto.js" />
     <Content Include="Vista\JavaScript\script.js" />
     <Content Include="Vista\Registrar.aspx" />
     <Content Include="Vista\RegistrarObjetos.aspx" />
+    <Content Include="Vista\RegObjeto.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +101,13 @@
     </Compile>
     <Compile Include="Vista\RegistrarObjetos.aspx.designer.cs">
       <DependentUpon>RegistrarObjetos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\RegObjeto.aspx.cs">
+      <DependentUpon>RegObjeto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegObjeto.aspx.designer.cs">
+      <DependentUpon>RegObjeto.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
