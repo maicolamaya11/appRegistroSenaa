@@ -69,11 +69,12 @@
   <ItemGroup>
     <Content Include="Vista\Boostrap\Boostrap.css" />
     <Content Include="Vista\css\Carrusel.css" />
-    <Content Include="Vista\css\Estilos_RegistroUsuario.css" />
+    <Content Include="Vista\css\RegistroUsuario.css" />
     <Content Include="Vista\css\Login.css" />
     <Content Include="Vista\css\NavbarIndex.css" />
     <Content Include="Vista\css\Principal.css" />
     <Content Include="Vista\css\RegistroObjeto.css" />
+    <Content Include="Vista\css\RegistroObjetos.css" />
     <Content Include="Vista\Imagenes\centro.jpg" />
     <Content Include="Vista\Imagenes\Imagen1.png" />
     <Content Include="Vista\Imagenes\jocvenes.jpg" />
@@ -86,6 +87,7 @@
     <Content Include="Vista\JavaScript\script.js" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Registrar.aspx" />
+    <Content Include="Vista\RegistrarObjeto.aspx" />
     <Content Include="Vista\RegistrarObjetos.aspx" />
     <Content Include="Vista\RegistroUsuarios.aspx" />
     <Content Include="Vista\RegObjeto.aspx" />
@@ -93,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\ClConexion.cs" />
+    <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClUsuarioD.cs" />
     <Compile Include="Datos\ProcesarSQL.cs" />
     <Compile Include="Entidades\ClPersonalE.cs" />
@@ -133,6 +136,13 @@
     </Compile>
     <Compile Include="Vista\Registrar.aspx.designer.cs">
       <DependentUpon>Registrar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\RegistrarObjeto.aspx.cs">
+      <DependentUpon>RegistrarObjeto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegistrarObjeto.aspx.designer.cs">
+      <DependentUpon>RegistrarObjeto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\RegistrarObjetos.aspx.cs">
       <DependentUpon>RegistrarObjetos.aspx</DependentUpon>

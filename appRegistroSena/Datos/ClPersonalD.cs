@@ -7,5 +7,6 @@ namespace appRegistroSena.Datos
 {
     public class ClPersonalD
     {
+
     }
 }
