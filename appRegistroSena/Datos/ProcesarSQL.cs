@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -61,6 +60,14 @@ namespace appRegistroSena.Datos
                 return registro;
             }
 
+        }
+
+        public SqlCommand mtdIUDConect(string ProcesoAlmacenado)
+        {
+            ClConexion objConexion = new ClConexion();
+            SqlCommand comando = new SqlCommand(ProcesoAlmacenado, objConexion.mtdConexion());
+            comando.CommandType = CommandType.StoredProcedure;
+            return comando;
         }
 
 

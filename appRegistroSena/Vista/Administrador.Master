@@ -31,49 +31,49 @@
                     <div class="menu_items">
                         <ul class="menu_item">
                             <div class="menu_title flex">
-                                <span class="title">Dashboard</span>
+                                <span class="title">Informes</span>
                                 <span class="line"></span>
                             </div>
                             <li class="item">
-                                <a href="#" class="link flex">
+                                <a href="ListaRegistrosRealizados.aspx" class="link flex">
                                     <i class="bx bx-home-alt"></i>
-                                    <span>Overview</span>
+                                    <span>Registros Realizados</span>
                                 </a>
                             </li>
-                            <li class="item">
+                           <%-- <li class="item">
                                 <a href="#" class="link flex">
                                     <i class="bx bx-grid-alt"></i>
                                     <span>All Projects</span>
                                 </a>
-                            </li>
+                            </li>--%>
                         </ul>
 
                         <ul class="menu_item">
                             <div class="menu_title flex">
-                                <span class="title">Editor</span>
+                                <span class="title">Datos</span>
                                 <span class="line"></span>
                             </div>
                             <li class="item">
-                                <a href="#" class="link flex">
+                                <a href="RegistrarPrograma.aspx" class="link flex">
                                     <i class="bx bxs-magic-wand"></i>
-                                    <span>Magic Build</span>
+                                    <span>Registrar Programa</span>
                                 </a>
                             </li>
                             <li class="item">
-                                <a href="#" class="link flex">
+                                <a href="RegistrarUsuarios.aspx" class="link flex">
                                     <i class="bx bx-folder"></i>
-                                    <span>New Projects</span>
+                                    <span>Registrar Usuarios</span>
                                 </a>
                             </li>
-                            <li class="item">
+                           <%-- <li class="item">
                                 <a href="#" class="link flex">
                                     <i class="bx bx-cloud-upload"></i>
                                     <span>Upload New</span>
                                 </a>
-                            </li>
+                            </li>--%>
                         </ul>
 
-                        <ul class="menu_item">
+                       <%-- <ul class="menu_item">
                             <div class="menu_title flex">
                                 <span class="title">Setting</span>
                                 <span class="line"></span>
@@ -96,7 +96,7 @@
                                     <span>Setting</span>
                                 </a>
                             </li>
-                        </ul>
+                        </ul>--%>
                     </div>
                 </div>
             </nav>
