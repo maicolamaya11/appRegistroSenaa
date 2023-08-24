@@ -8,7 +8,7 @@
     <script src="JavaScript/datatables.js"></script>
     <script src="JavaScript/bootstrap.bundle.js"></script>
     <script src="JavaScript/bootstrap.min.js"></script>
-    <script src="JavaScript/DataTable.js"></script>
+
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -19,11 +19,15 @@
                     <thead>
                         <tr>
                             <th>Codigo</th>
-                            <th>horaIng</th>
-                            <th>horaSalida</th>
-                            <th>documentoPerson</th>
-                            <th>nombrePort</th>
-                            <th>documentoUsua</th>
+                            <th>Estado</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Hora Ingreso</th>
+                            <th>Fecha Salida</th>
+                            <th>Hora Salida</th>
+                            <th>Documento Vigilante</th>
+                            <th>Porteria</th>
+                            <th>Documento Usuario</th>
+                            <th>Documento Usuario</th>
                         </tr>
                     </thead>
                     <tbody></tbody>

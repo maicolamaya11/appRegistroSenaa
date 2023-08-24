@@ -8,9 +8,11 @@ namespace appRegistroSena.Entidades
     public class ClRegistroE
     {
         public int idRegistro { get; set; }
-        public string Codigo { get; set; }
-        public DateTime horaIngreso { get; set; }
-        public string horaIng { get; set; }
+        public string codigo { get; set; }
+        public string estado { get; set; }
+        public string fechaIngreso { get; set; }
+        public string horaIngreso { get; set; }
+        public string fechaSalida { get; set; }
         public string horaSalida { get; set; }
         public int idPersonal { get; set; }
         public string documentoPerson { get; set; }

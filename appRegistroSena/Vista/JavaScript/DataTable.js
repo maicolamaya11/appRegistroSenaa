@@ -1,4 +1,4 @@
-﻿var idp;
+﻿var cod ;
 var table;
 var listaPersonal;
 
@@ -6,8 +6,11 @@ $(document).ready(function () {
     table = $('#DataTableRegistros').DataTable({
         data: jsonData,
         columns: [
-            { data: 'Codigo' },
-            { data: 'horaIng' },
+            { data: 'codigo' },
+            { data: 'estado' },
+            { data: 'fechaIngreso' },
+            { data: 'horaIngreso' },
+            { data: 'fechaSalida' },
             { data: 'horaSalida' },
             { data: 'documentoPerson' },
             { data: 'nombrePort' },
@@ -18,14 +21,17 @@ $(document).ready(function () {
             }
 
         ]
+
+        
     })
+
 })
 
 $('#DataTableRegistros').on('click', '.btnEditar', function (e) {
 
     e.preventDefault();
     var rowData = $('#DataTableRegistros').DataTable().row($(this).closest('tr')).data();
-    cod = rowData.Codigo
+    cod = rowData.codigo;
     $.ajax({
         url: "ListaRegistrosRealizados.aspx/mtdCargarDatos",
         type: "POST",
@@ -35,8 +41,11 @@ $('#DataTableRegistros').on('click', '.btnEditar', function (e) {
         success: function (Data) {
 
             var datosProducto = Data.d;
-            $('.txt-codigo-registro').val(datosProducto[0]["Codigo"]);
-            $('.txt-horaIngreso-registro').val(datosProducto[0]["horaIng"]);
+            $('.txt-codigo-registro').val(datosProducto[0]["codigo"]);
+            $('.txt-estado-registro').val(datosProducto[0]["estado"]);
+            $('.txt-fechaIngreso-registro').val(datosProducto[0]["fechaIngreso"]);
+            $('.txt-horaIngreso-registro').val(datosProducto[0]["horaIngreso"]);
+            $('.txt-fechaSalida-registro').val(datosProducto[0]["fechaSalida"]);
             $('.txt-horaSalida-registro').val(datosProducto[0]["horaSalida"]);
             $('.txt-documentoP-registro').val(datosProducto[0]["documentoPerson"]);
             $('.txt-nombrePo-registro').val(datosProducto[0]["nombrePort"]);
@@ -53,12 +62,15 @@ $('#DataTableRegistros').on('click', '.btnEditar', function (e) {
 $('#btnActualizar').on('click', function (e) {
     e.preventDefault();
 
-    var IdPersonal = idp;
-    var Documento = $('.txt-documento-personal').val();
-    var Nombre = $('.txt-nombre-personal').val();
-    var Apellido = $('.txt-apellido-personal').val();
-    var Ciudad = $('.txt-ciudad-personal').val();
-    var Telefono = $('.txt-telefono-personal').val();
+    var codigo = cod;
+    var estado = $('.txt-documento-personal').val();
+    var fechaIngreso = $('.txt-nombre-personal').val();
+    var horaIngreso = $('.txt-nombre-personal').val();
+    var fechaSalida = $('.txt-nombre-personal').val();
+    var horaSalida = $('.txt-nombre-personal').val();
+    var documentoPerson = $('.txt-apellido-personal').val();
+    var nombrePort = $('.txt-ciudad-personal').val();
+    var documentoUsua = $('.txt-telefono-personal').val();
 
     var DatosActualizados = {
         IdPersonal: IdPersonal,
@@ -71,7 +83,7 @@ $('#btnActualizar').on('click', function (e) {
 
     // Realiza la petición Ajax
     $.ajax({
-        url: "DataTableVista.aspx/mtdActualizarPersonal",
+        url: "ListaRegistrosRealizados.aspx/mtdActualizarPersonal",
         type: "POST",
         data: JSON.stringify({ data: DatosActualizados }),
         contentType: "application/json; charset=utf-8",
