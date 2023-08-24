@@ -70,10 +70,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Vista\Boostrap\Boostrap.css" />
+    <Content Include="Vista\css\Carrusel.css" />
     <Content Include="Vista\css\Estilos_DataTables.css" />
     <Content Include="Vista\css\Estilos_MasterAdmon.css" />
     <Content Include="Vista\css\Estilos_RegistrarPrograma.css" />
+    <Content Include="Vista\css\Index.css" />
+    <Content Include="Vista\css\Login.css" />
+    <Content Include="Vista\Imagenes\centro.jpg" />
     <Content Include="Vista\Imagenes\Imagen.jpg" />
+    <Content Include="Vista\Imagenes\Imagen1.png" />
+    <Content Include="Vista\Imagenes\nostros.png" />
+    <Content Include="Vista\Imagenes\sena.png" />
+    <Content Include="Vista\Imagenes\senacentro.png" />
+    <Content Include="Vista\Index.aspx" />
     <Content Include="Vista\JavaScript\bootstrap.bundle.js" />
     <Content Include="Vista\JavaScript\bootstrap.min.js" />
     <Content Include="Vista\JavaScript\DataTable.js" />
@@ -130,6 +140,13 @@
     <Compile Include="Vista\Administrador.Master.designer.cs">
       <DependentUpon>Administrador.Master</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\ListaRegistrosRealizados.aspx.cs">
       <DependentUpon>ListaRegistrosRealizados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,6 +160,13 @@
     </Compile>
     <Compile Include="Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\NavbarIndex.Master.cs">
+      <DependentUpon>NavbarIndex.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\NavbarIndex.Master.designer.cs">
+      <DependentUpon>NavbarIndex.Master</DependentUpon>
     </Compile>
     <Compile Include="Vista\Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
@@ -208,6 +232,7 @@
     <Content Include="Vista\JavaScript\Js._MasterAdmon.js" />
     <Content Include="Views\Sweet\Alert.cshtml" />
     <Content Include="Vista\css\bootstrap.min.css" />
+    <Content Include="Vista\NavbarIndex.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -4,18 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    
+    <link href="css/Login.css" rel="stylesheet" />
+
+
 </head>
 <body>
-    <form id="form1" runat="server">        
-            <div>
+    <form id="form1" runat="server">
+        <div>
             <center>
+                
                 <div class="login-container">
                     <img src="Imagenes/Imagen1.png" />
                     <h2>Iniciar sesión</h2>
 
-                  <asp:TextBox ID="txtDocumento" runat="server" class="login-input" placeholder="Usuario" required onkeypress="return isNumberKey(event) && isMaxLength(event)"></asp:TextBox>
+                 <asp:TextBox ID="txtDocumento" runat="server" class="login-input" placeholder="Usuario" required onkeypress="return isNumberKey(event) && isMaxLength(event)"></asp:TextBox>
 
 <script>
     function isNumberKey(event) {
@@ -46,6 +51,7 @@
                     </div>
 
                       </center>
+
 
         </div>
     </form>
