@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,15 +70,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-
+    <Content Include="Vista\css\Estilos_DataTables.css" />
     <Content Include="Vista\css\Estilos_MasterAdmon.css" />
     <Content Include="Vista\css\Estilos_RegistrarPrograma.css" />
-
+    <Content Include="Vista\Imagenes\Imagen.jpg" />
+    <Content Include="Vista\JavaScript\bootstrap.bundle.js" />
+    <Content Include="Vista\JavaScript\bootstrap.min.js" />
+    <Content Include="Vista\JavaScript\DataTable.js" />
+    <Content Include="Vista\JavaScript\datatables.js" />
+    <Content Include="Vista\JavaScript\jquery-3.6.0.js" />
+    <Content Include="Vista\ListaRegistrosRealizados.aspx" />
+    <Content Include="Vista\PrincipalAdministrador.aspx" />
+    <Content Include="Vista\RegistrarUsuarios.aspx" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert-dev.js" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert.min.js" />
     <Content Include="Vista\SweetAlert\Styles\sweetalert.css" />
     <Content Include="Vista\css\Buscar.css" />
-
     <Content Include="Vista\css\Estilos_RegistroUsuario.css" />
     <Content Include="Vista\css\NavbarIndex.css" />
     <Content Include="Vista\css\Principal.css" />
@@ -96,24 +106,21 @@
   <ItemGroup>
     <Compile Include="Datos\ClProgramasD.cs" />
     <Compile Include="Datos\ClConexion.cs" />
- <Compile Include="Datos\ClUsuarioD.cs" />
+    <Compile Include="Datos\ClUsuarioD.cs" />
     <Compile Include="Datos\ProcesarSQL.cs" />
     <Compile Include="Entidades\ClProgramasE.cs" />
     <Compile Include="Entidades\ClUsuarioE.cs" />
     <Compile Include="Logica\ClProgramasL.cs" />
     <Compile Include="Logica\ClUsuarioL.cs" />
-
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClPorteriaD.cs" />
     <Compile Include="Datos\ClRegistroD.cs" />
-    <Compile Include="Datos\ProcesarSQL.cs" />
     <Compile Include="Entidades\ClPersonalE.cs" />
     <Compile Include="Entidades\ClPorteriaE.cs" />
     <Compile Include="Entidades\ClRegistroE.cs" />
     <Compile Include="Logica\ClPersonalL.cs" />
     <Compile Include="Logica\ClPorteriaL.cs" />
     <Compile Include="Logica\ClRegistroL.cs" />
-
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\Administrador.Master.cs">
       <DependentUpon>Administrador.Master</DependentUpon>
@@ -122,12 +129,26 @@
     <Compile Include="Vista\Administrador.Master.designer.cs">
       <DependentUpon>Administrador.Master</DependentUpon>
     </Compile>
+    <Compile Include="Vista\ListaRegistrosRealizados.aspx.cs">
+      <DependentUpon>ListaRegistrosRealizados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListaRegistrosRealizados.aspx.designer.cs">
+      <DependentUpon>ListaRegistrosRealizados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vista\Principal.Master.designer.cs">
       <DependentUpon>Principal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\PrincipalAdministrador.aspx.cs">
+      <DependentUpon>PrincipalAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\PrincipalAdministrador.aspx.designer.cs">
+      <DependentUpon>PrincipalAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Registrar.aspx.cs">
       <DependentUpon>Registrar.aspx</DependentUpon>
@@ -150,6 +171,13 @@
     <Compile Include="Vista\RegistrarPrograma.aspx.designer.cs">
       <DependentUpon>RegistrarPrograma.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\RegistrarUsuarios.aspx.cs">
+      <DependentUpon>RegistrarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegistrarUsuarios.aspx.designer.cs">
+      <DependentUpon>RegistrarUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\RegistroUsuarios.aspx.cs">
       <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -168,12 +196,10 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Vista\Principal.Master" />
-
     <Content Include="Vista\Administrador.Master" />
     <Content Include="Vista\JavaScript\Js._MasterAdmon.js" />
-
     <Content Include="Views\Sweet\Alert.cshtml" />
-
+    <Content Include="Vista\css\bootstrap.min.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

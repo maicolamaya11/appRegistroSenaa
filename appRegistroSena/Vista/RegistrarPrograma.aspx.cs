@@ -42,7 +42,7 @@ namespace appRegistroSena.Vista
             if (registro == 1)
             {
 
-
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('Usuario No Registrado! ', 'Su usuario no ha Sido Registrado Con Exito', 'warning')", true);
             }
         }
     }
