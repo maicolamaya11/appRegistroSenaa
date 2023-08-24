@@ -65,12 +65,12 @@
                                     <span>Registrar Usuarios</span>
                                 </a>
                             </li>
-                           <%-- <li class="item">
+                            <li class="item">
                                 <a href="#" class="link flex">
-                                    <i class="bx bx-cloud-upload"></i>
-                                    <span>Upload New</span>
+                                    <i class="bx bx-folder"></i>
+                                    <span>Registrar Personal</span>
                                 </a>
-                            </li>--%>
+                            </li>
                         </ul>
 
                        <%-- <ul class="menu_item">
