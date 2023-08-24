@@ -80,6 +80,7 @@
     <Content Include="Vista\JavaScript\datatables.js" />
     <Content Include="Vista\JavaScript\jquery-3.6.0.js" />
     <Content Include="Vista\ListaRegistrosRealizados.aspx" />
+    <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\PrincipalAdministrador.aspx" />
     <Content Include="Vista\RegistrarUsuarios.aspx" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert-dev.js" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="Vista\ListaRegistrosRealizados.aspx.designer.cs">
       <DependentUpon>ListaRegistrosRealizados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>

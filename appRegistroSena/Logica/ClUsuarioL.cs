@@ -15,5 +15,11 @@ namespace appRegistroSena.Logica
             int registrar = objUsuarioD.mtdRegistrarUsuario(objDatos);
             return registrar;
         }
+        public ClUsuarioE mtdDatosLogin(string documento, string contraseña)
+        {
+            ClUsuarioD objUsuarioD = new ClUsuarioD();
+            ClUsuarioE objDatos = objUsuarioD.mtdLogin(documento, contraseña);
+            return objDatos;
+        }
     }
 }
