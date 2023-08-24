@@ -44,7 +44,7 @@ namespace appRegistroSena.Vista
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
             ClRegistroE objDatos = new ClRegistroE();
-            objDatos.horaIngreso = DateTime.Now;
+            //objDatos.horaIngreso = DateTime.Now;
             objDatos.horaSalida = "";
             objDatos.idPersonal = 1;
             objDatos.idPorteria = int.Parse(ddlPorteria.SelectedValue.ToString());

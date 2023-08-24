@@ -25,7 +25,7 @@ namespace appRegistroSena.Vista
         }
 
         [WebMethod]
-        public static List<ClRegistroE> mtdCargarDatos()
+        public static List<ClRegistroE> mtdCargarDatos(int Codigo)
         {
             ClRegistroL objRegistro = new ClRegistroL();
             List<ClRegistroE> Registro = objRegistro.mtdListarRegistros();
@@ -44,11 +44,15 @@ namespace appRegistroSena.Vista
 
             var datos = data as IDictionary<string, object>;
 
-            objActualizarPersonal.Codigo = datos["codigo"].ToString();
-            objActualizarPersonal.horaIng = datos["horaIngreso"].ToString();
+            objActualizarPersonal.codigo = datos["codigo"].ToString();
+            objActualizarPersonal.estado = datos["estado"].ToString();
+            objActualizarPersonal.fechaIngreso = datos["fechaIngreso"].ToString();
+            objActualizarPersonal.horaIngreso = datos["horaIngreso"].ToString();
+            objActualizarPersonal.fechaSalida = datos["fechaSalida"].ToString();
             objActualizarPersonal.horaSalida = datos["horaSalida"].ToString();
             objActualizarPersonal.documentoPerson = datos["documento"].ToString();
             objActualizarPersonal.nombrePort = datos["nombrePorteria"].ToString();
+            objActualizarPersonal.documentoUsua = datos["documento"].ToString();
 
             int resultado = objPersonalL.mtdActualizacion(objActualizarPersonal);
 
@@ -71,7 +75,7 @@ namespace appRegistroSena.Vista
             ClRegistroE objEliminarPersonal = new ClRegistroE();
 
             var data = formData as IDictionary<string, object>;
-            objEliminarPersonal.Codigo = data["codigo"].ToString();
+            objEliminarPersonal.codigo = data["codigo"].ToString();
 
             int resultado = objPersonal.mtdEliminar(objEliminarPersonal);
             return string.Empty;

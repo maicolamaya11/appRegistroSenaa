@@ -105,5 +105,6 @@
         </div>
 
     </form>
+        <script src="JavaScript/DataTable.js"></script>
 </body>
 </html>

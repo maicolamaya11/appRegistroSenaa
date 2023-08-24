@@ -27,9 +27,11 @@ namespace appRegistroSena.Datos
         public List<ClRegistroE> mtdListarRegistros()
         {
 
-            string Consulta = "SELECT codigo, horaIngreso, horaSalida, Personal.documento, Porteria.nombrePorteria,Usuario.documento " +
-                "FROM Registro JOIN Personal ON Personal.idPersonal = Registro.idPersonal JOIN Porteria ON Porteria.idPorteria = Registro.idPorteria " +
-                "JOIN Usuario ON Usuario.idUsuario = Registro.idUsuario;";
+            string Consulta = "SELECT codigo, Registro.estado, Ingreso.fechaIngreso, Ingreso.horaIngreso, Salida.fechaSalida," +
+                " Salida.horaSalida, Personal.documento, Porteria.nombrePorteria,Usuario.documento FROM Registro JOIN Ingreso " +
+                "ON Ingreso.idIngreso = Registro.idIngreso  JOIN Salida ON Salida.idSalida = Registro.idSalida  JOIN Personal " +
+                "ON Personal.idPersonal = Registro.idPersonal JOIN Porteria ON Porteria.idPorteria = Registro.idPorteria " +
+                "JOIN Usuario ON Usuario.idUsuario = Registro.idUsuario";
 
             ProcesarSQL objSQL = new ProcesarSQL();
             DataTable tblListarPersonal = objSQL.mtdSelectDesc(Consulta);
@@ -39,8 +41,11 @@ namespace appRegistroSena.Datos
             {
                 ClRegistroE objRegistrosE = new ClRegistroE();
 
-                objRegistrosE.Codigo = tblListarPersonal.Rows[i]["codigo"].ToString();
-                objRegistrosE.horaIng = tblListarPersonal.Rows[i]["horaIngreso"].ToString();
+                objRegistrosE.codigo = tblListarPersonal.Rows[i]["codigo"].ToString();
+                objRegistrosE.estado = tblListarPersonal.Rows[i]["estado"].ToString();
+                objRegistrosE.fechaIngreso = tblListarPersonal.Rows[i]["fechaIngreso"].ToString();
+                objRegistrosE.horaIngreso = tblListarPersonal.Rows[i]["horaIngreso"].ToString();
+                objRegistrosE.fechaSalida = tblListarPersonal.Rows[i]["fechaSalida"].ToString();
                 objRegistrosE.horaSalida = tblListarPersonal.Rows[i]["horaSalida"].ToString();
                 objRegistrosE.documentoPerson = tblListarPersonal.Rows[i]["documento"].ToString();
                 objRegistrosE.nombrePort = tblListarPersonal.Rows[i]["nombrePorteria"].ToString();
@@ -60,8 +65,11 @@ namespace appRegistroSena.Datos
             ProcesarSQL objSQL = new ProcesarSQL();
             SqlCommand Actualizar = objSQL.mtdIUDConect(ProcesosAlmacenado);
 
-            Actualizar.Parameters.AddWithValue("@codigo", objDatos.Codigo);
-            Actualizar.Parameters.AddWithValue("@horaIngreso", objDatos.horaIng);
+            Actualizar.Parameters.AddWithValue("@codigo", objDatos.codigo);
+            Actualizar.Parameters.AddWithValue("@estado", objDatos.estado);
+            Actualizar.Parameters.AddWithValue("@fechaIngreso", objDatos.fechaIngreso);
+            Actualizar.Parameters.AddWithValue("@horaIngreso", objDatos.horaIngreso);
+            Actualizar.Parameters.AddWithValue("@fechaSalida", objDatos.fechaSalida);
             Actualizar.Parameters.AddWithValue("@horaSalida", objDatos.horaSalida);
             Actualizar.Parameters.AddWithValue("@documento", objDatos.documentoPerson);
             Actualizar.Parameters.AddWithValue("@nombrePorteria", objDatos.nombrePort);
@@ -78,7 +86,7 @@ namespace appRegistroSena.Datos
             ProcesarSQL objSQL = new ProcesarSQL();
             SqlCommand Eliminar = objSQL.mtdIUDConect(ProcesosAlmacenado);
 
-            Eliminar.Parameters.AddWithValue("@codigo", objDatos.Codigo);
+            Eliminar.Parameters.AddWithValue("@codigo", objDatos.codigo);
 
             int DatosActualizar = Eliminar.ExecuteNonQuery();
             return DatosActualizar;
