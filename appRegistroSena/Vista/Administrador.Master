@@ -40,12 +40,12 @@
                                     <span>Registros Realizados</span>
                                 </a>
                             </li>
-                            <%-- <li class="item">
-                                <a href="#" class="link flex">
+                             <li class="item">
+                                <a href="ListaInstructores.aspx" class="link flex">
                                     <i class="bx bx-grid-alt"></i>
-                                    <span>All Projects</span>
+                                    <span>listado Instructores</span>
                                 </a>
-                            </li>--%>
+                            </li>
                         </ul>
 
                         <ul class="menu_item">
