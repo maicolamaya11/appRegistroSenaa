@@ -13,7 +13,7 @@ namespace appRegistroSena.Datos
         public SqlConnection mtdConexion()
         {
 
-            conexion = new SqlConnection("Data Source=SOGAPRRBCFSD544\\SQLEXPRESS;Initial Catalog=RegistroSena;Integrated Security=True");
+            conexion = new SqlConnection("Data Source=DESKTOP-24921JO\\SQLEXPRESS;Initial Catalog=RegistroSena;Integrated Security=True");
 
             conexion.Open();
             return conexion;

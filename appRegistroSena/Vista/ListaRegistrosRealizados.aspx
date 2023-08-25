@@ -8,8 +8,9 @@
     <script src="JavaScript/datatables.js"></script>
     <script src="JavaScript/bootstrap.bundle.js"></script>
     <script src="JavaScript/bootstrap.min.js"></script>
-
-
+    <script src="JavaScript/sweetalert-dev.js"></script>
+    <link href="css/sweetalert.css" rel="stylesheet" />
+    <script src="JavaScript/sweetalert.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="form1" runat="server">
@@ -27,7 +28,7 @@
                             <th>Documento Vigilante</th>
                             <th>Porteria</th>
                             <th>Documento Usuario</th>
-                            <th>Documento Usuario</th>
+                            <th>Opc</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -44,12 +45,15 @@
                     </div>
 
                     <div class="modal-body">
-                        <asp:TextBox ID="txtCodigo" runat="server" placeholder="Código" class="form-control mb-3 txt-documento-personal"></asp:TextBox>
-                        <asp:TextBox ID="txtHoraIngreso" runat="server" placeholder="Hora Ingreso" class="form-control mb-3 txt-nombre-personal h-100"></asp:TextBox>
-                        <asp:TextBox ID="txtHoraSalida" runat="server" placeHolder="Hora Salida" class="form-control mb-3 txt-apellido-personal"></asp:TextBox>
-                        <asp:TextBox ID="txtDocumentoPerson" runat="server" placeHolder="Documento Personal" class="form-control mb-3 txt-ciudad-personal"></asp:TextBox>
-                        <asp:TextBox ID="txtNombrePort" runat="server" placeHolder="Nombre Portero" class="form-control mb-3 txt-telefono-personal"></asp:TextBox>
-                        <asp:TextBox ID="txtDocumentoUsua" runat="server" placeHolder="Documento Usuario" class="form-control mb-3 txt-telefono-personal"></asp:TextBox>
+                        <asp:TextBox ID="txtCodigo" runat="server" placeholder="Código" class="form-control mb-3 txt-codigo-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtEstado" runat="server" placeholder="Estado" class="form-control mb-3 txt-estado-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaIngreso" runat="server" placeholder="Fecha Ingreso" class="form-control mb-3 txt-fechaIngreso-registro h-100"></asp:TextBox>
+                        <asp:TextBox ID="txtHoraIngreso" runat="server" placeholder="Hora Ingreso" class="form-control mb-3 txt-horaIngreso-registro h-100"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaSalida" runat="server" placeHolder="Fecha Salida" class="form-control mb-3 txt-fechaSalida-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtHoraSalida" runat="server" placeHolder="Hora Salida" class="form-control mb-3 txt-horaSalida-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtDocumentoPerson" runat="server" placeHolder="Documento Personal" class="form-control mb-3 txt-documentoP-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtNombrePort" runat="server" placeHolder="Nombre Portero" class="form-control mb-3 txt-nombrePort-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtDocumentoUsua" runat="server" placeHolder="Documento Usuario" class="form-control mb-3 txt-documentoU-registro"></asp:TextBox>
 
                     </div>
 
