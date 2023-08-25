@@ -13,7 +13,7 @@ namespace appRegistroSena.Datos
         public SqlConnection mtdConexion()
         {
 
-            conexion = new SqlConnection("Data Source=.;Initial Catalog=dbRegistroSena;Integrated Security=True");
+            conexion = new SqlConnection("");
 
             conexion.Open();
             return conexion;
