@@ -38,13 +38,32 @@ namespace appRegistroSena.Datos
                 objUsuarioE.clave = tblDatos.Rows[0]["clave"].ToString();
                 objUsuarioE.rol = tblDatos.Rows[0]["rol"].ToString();
 
-
-
-
-
             }
             return objUsuarioE;
         }
 
+        public List<ClUsuarioE> mtdListarInstructores()
+        {
+            string Consulta = "Select * From Usuario Where rol = 'Instructor'";
+            ProcesarSQL SQL = new ProcesarSQL();
+            DataTable tblInstru = SQL.mtdSelectDesc(Consulta);
+
+            List<ClUsuarioE> listaProf = new List<ClUsuarioE>();
+            for (int i = 0; i < tblInstru.Rows.Count; i++)
+            {
+                ClUsuarioE objInstru = new ClUsuarioE();
+                objInstru.idUsuario = int.Parse(tblInstru.Rows[i]["idUsuario"].ToString());
+                objInstru.nombre = tblInstru.Rows[i]["nombre"].ToString();
+                objInstru.apellido = tblInstru.Rows[i]["apellido"].ToString();
+                objInstru.telefono = tblInstru.Rows[i]["telefono"].ToString();
+                objInstru.email = tblInstru.Rows[i]["email"].ToString();
+                objInstru.clave = tblInstru.Rows[i]["clave"].ToString();
+                objInstru.documento = tblInstru.Rows[i]["documento"].ToString();
+                objInstru.rol = tblInstru.Rows[i]["rol"].ToString();
+                
+                listaProf.Add(objInstru);
+            }
+            return listaProf;
+        }
     }
 }

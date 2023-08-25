@@ -21,5 +21,12 @@ namespace appRegistroSena.Logica
             ClUsuarioE objDatos = objUsuarioD.mtdLogin(documento, contraseña);
             return objDatos;
         }
+
+        public List<ClUsuarioE> mtdListarInstructor()
+        {
+            ClUsuarioD objProf = new ClUsuarioD();
+            List<ClUsuarioE> lista = objProf.mtdListarInstructores();
+            return lista;
+        }
     }
 }

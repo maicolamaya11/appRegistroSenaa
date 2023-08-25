@@ -78,6 +78,7 @@
     <Content Include="Vista\css\Index.css" />
     <Content Include="Vista\css\Login.css" />
     <Content Include="Vista\css\RegistrarPersonal.css" />
+    <Content Include="Vista\css\sweetalert.css" />
     <Content Include="Vista\Imagenes\centro.jpg" />
     <Content Include="Vista\Imagenes\Imagen.jpg" />
     <Content Include="Vista\Imagenes\Imagen1.png" />
@@ -90,6 +91,9 @@
     <Content Include="Vista\JavaScript\DataTable.js" />
     <Content Include="Vista\JavaScript\datatables.js" />
     <Content Include="Vista\JavaScript\jquery-3.6.0.js" />
+    <Content Include="Vista\JavaScript\sweetalert-dev.js" />
+    <Content Include="Vista\JavaScript\sweetalert.min.js" />
+    <Content Include="Vista\ListaInstructores.aspx" />
     <Content Include="Vista\ListaRegistrosRealizados.aspx" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\PrincipalAdministrador.aspx" />
@@ -148,6 +152,13 @@
     </Compile>
     <Compile Include="Vista\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ListaInstructores.aspx.cs">
+      <DependentUpon>ListaInstructores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListaInstructores.aspx.designer.cs">
+      <DependentUpon>ListaInstructores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\ListaRegistrosRealizados.aspx.cs">
       <DependentUpon>ListaRegistrosRealizados.aspx</DependentUpon>

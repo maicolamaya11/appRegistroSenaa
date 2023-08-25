@@ -40,12 +40,12 @@
                                     <span>Registros Realizados</span>
                                 </a>
                             </li>
-                           <%-- <li class="item">
-                                <a href="#" class="link flex">
+                             <li class="item">
+                                <a href="ListaInstructores.aspx" class="link flex">
                                     <i class="bx bx-grid-alt"></i>
-                                    <span>All Projects</span>
+                                    <span>listado Instructores</span>
                                 </a>
-                            </li>--%>
+                            </li>
                         </ul>
 
                         <ul class="menu_item">
@@ -73,7 +73,7 @@
                             </li>
                         </ul>
 
-                       <%-- <ul class="menu_item">
+                        <%-- <ul class="menu_item">
                             <div class="menu_title flex">
                                 <span class="title">Setting</span>
                                 <span class="line"></span>
@@ -105,6 +105,8 @@
         </div>
 
     </form>
-        <script src="JavaScript/DataTable.js"></script>
+    <script src="JavaScript/DataTable.js"></script>
+    
+
 </body>
 </html>
