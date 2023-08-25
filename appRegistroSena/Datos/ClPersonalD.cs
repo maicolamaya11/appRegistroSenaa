@@ -1,6 +1,7 @@
 ﻿using appRegistroSena.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -39,6 +40,35 @@ namespace appRegistroSena.Datos
             ProcesarSQL SQL = new ProcesarSQL();
             int registros = SQL.mtdIUDConec(Registro);
             return registros;
+        }
+        public List<ClPersonalE> mtdListarAprendices()
+        {
+
+            string Consulta = "select idPersonal,nombres,apellidos,documento,programa,rol from Personal join Programa on Programa.idPrograma = Personal.idPrograma where rol = '1'";
+
+            ProcesarSQL objSQL = new ProcesarSQL();
+            DataTable tblListarAprendices = objSQL.mtdSelectDesc(Consulta);
+            //DataTable tblListarRegistros = objSQL.mtdSelectDesc(Consulta);
+            List<ClPersonalE> ListarAprendice = new List<ClPersonalE>();
+            for (int i = 0; i < tblListarAprendices.Rows.Count; i++)
+            {
+                ClPersonalE objUsuarioE = new ClPersonalE();
+
+                objUsuarioE.idPersonal = int.Parse(tblListarAprendices.Rows[i]["idPersonal"].ToString());
+                objUsuarioE.idPrograma = int.Parse(tblListarAprendices.Rows[i]["idPrograma"].ToString());
+                objUsuarioE.nombres = tblListarAprendices.Rows[i]["nombres"].ToString();
+                objUsuarioE.apellidos = tblListarAprendices.Rows[i]["apellidos"].ToString();
+                objUsuarioE.documento = tblListarAprendices.Rows[i]["documento"].ToString();
+                objUsuarioE.programa = tblListarAprendices.Rows[i]["programa"].ToString();
+                objUsuarioE.rol = tblListarAprendices.Rows[i]["rol"].ToString();
+                
+
+                ListarAprendice.Add(objUsuarioE);
+
+
+            }
+            return ListarAprendice;
+
         }
     }
 }
