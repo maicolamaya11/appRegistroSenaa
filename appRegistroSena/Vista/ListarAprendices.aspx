@@ -32,32 +32,57 @@
         </div>
 
         <div class="modal fade venmodal" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editarModalLabel">Editar Registro</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarModalLabel">Editar Registro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
 
-                    <div class="modal-body">
-                        <asp:TextBox ID="txtCodigo" runat="server" placeholder="Código" class="form-control mb-3 txt-codigo-registro"></asp:TextBox>
-                        <asp:TextBox ID="txtEstado" runat="server" placeholder="Estado" class="form-control mb-3 txt-estado-registro"></asp:TextBox>
-                        <asp:TextBox ID="txtFechaIngreso" runat="server" placeholder="Fecha Ingreso" class="form-control mb-3 txt-fechaIngreso-registro h-100"></asp:TextBox>
-                        <asp:TextBox ID="txtHoraIngreso" runat="server" placeholder="Hora Ingreso" class="form-control mb-3 txt-horaIngreso-registro h-100"></asp:TextBox>
-                        <asp:TextBox ID="txtFechaSalida" runat="server" placeHolder="Fecha Salida" class="form-control mb-3 txt-fechaSalida-registro"></asp:TextBox>
-                        <asp:TextBox ID="txtHoraSalida" runat="server" placeHolder="Hora Salida" class="form-control mb-3 txt-horaSalida-registro"></asp:TextBox>
-                        <asp:TextBox ID="txtDocumentoPerson" runat="server" placeHolder="Documento Personal" class="form-control mb-3 txt-documentoP-registro"></asp:TextBox>
-                        <asp:TextBox ID="txtNombrePort" runat="server" placeHolder="Nombre Portero" class="form-control mb-3 txt-nombrePort-registro"></asp:TextBox>
-                        <asp:TextBox ID="txtDocumentoUsua" runat="server" placeHolder="Documento Usuario" class="form-control mb-3 txt-documentoU-registro"></asp:TextBox>
+            <div class="modal-body">
+                <asp:TextBox ID="txtNombre" runat="server" placeholder="Código" class="form-control mb-3 txt-nombres-personal"></asp:TextBox>
+                <asp:TextBox ID="txtApellido" runat="server" placeholder="Estado" class="form-control mb-3 txt-apellidos-personal"></asp:TextBox>
+                <asp:TextBox ID="txtDocumentos" runat="server" placeholder="Fecha Ingreso" class="form-control mb-3 txt-documento-personal h-100"></asp:TextBox>
+                <asp:TextBox ID="txtPrograma" runat="server" placeholder="Hora Ingreso" class="form-control mb-3 txt-programa-personal h-100"></asp:TextBox>
+                <asp:TextBox ID="txtRol" runat="server" placeHolder="Fecha Salida" class="form-control mb-3 txt-rol-personal"></asp:TextBox>
+            </div>
 
-                    </div>
-
-                    <div class="modal-footer">
-                        <%--<asp:Button id="btnActualizar" class="btn btn-primary" runat="server" Text="Actualizar" />--%>
-                        <button id="btnActualizar" class="btn btn-primary" type="button">Actualizar</button>
-                    </div>
-                </div>
+            <div class="modal-footer">
+                <button id="btnActualizar" class="btn btn-primary" type="button">Actualizar</button>
             </div>
         </div>
+    </div>
+</div>
+
+<script>
+    $('#DataTableRegistros').on('click', '.btnEditar', function (e) {
+        e.preventDefault();
+        var rowData = $('#DataTableRegistros').DataTable().row($(this).closest('tr')).data();
+        var idPer = rowData.idPersonal;
+
+        $.ajax({
+            url: "ListarAprendices.aspx/mtdCargarDatos",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ idPersonal: idPer }),
+            success: function (Data) {
+                var datosProducto = Data.d;
+
+                $('#<%= txtNombre.ClientID %>').val(datosProducto[0]["nombres"]);
+                $('#<%= txtApellido.ClientID %>').val(datosProducto[0]["apellidos"]);
+                $('#<%= txtDocumentos.ClientID %>').val(datosProducto[0]["documento"]);
+                $('#<%= txtPrograma.ClientID %>').val(datosProducto[0]["programa"]);
+                $('#<%= txtRol.ClientID %>').val(datosProducto[0]["rol"]);
+
+                $('#editarModal').modal('show');
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+</script>
+
     </div>
 </asp:Content>

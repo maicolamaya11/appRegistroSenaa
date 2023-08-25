@@ -1,4 +1,5 @@
 ﻿using appRegistroSena.Entidades;
+using appRegistroSena.Vista;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -71,5 +72,36 @@ namespace appRegistroSena.Datos
             return ListarAprendice;
 
         }
+        public List<ClPersonalE> mtdObtenerAprendicesCod(int idPersonal)
+        {
+
+            string Consulta = "select idPersonal,nombres,apellidos,documento,programa,rol from Personal inner join Programa on Programa.idPrograma = Personal.idPrograma where idPersonal = '"+ idPersonal + "' ";
+
+            ProcesarSQL objSQL = new ProcesarSQL();
+            DataTable tblListarAprendices = objSQL.mtdSelectDesc(Consulta);
+            //DataTable tblListarRegistros = objSQL.mtdSelectDesc(Consulta);
+            List<ClPersonalE> ListarAprendice = new List<ClPersonalE>();
+            for (int i = 0; i < tblListarAprendices.Rows.Count; i++)
+            {
+                ClPersonalE objUsuarioE = new ClPersonalE();
+
+                objUsuarioE.idPersonal = int.Parse(tblListarAprendices.Rows[i]["idPersonal"].ToString());
+                objUsuarioE.programa = tblListarAprendices.Rows[i]["Programa"].ToString();
+
+                objUsuarioE.nombres = tblListarAprendices.Rows[i]["nombres"].ToString();
+                objUsuarioE.apellidos = tblListarAprendices.Rows[i]["apellidos"].ToString();
+                objUsuarioE.documento = tblListarAprendices.Rows[i]["documento"].ToString();
+
+                objUsuarioE.rol = tblListarAprendices.Rows[i]["rol"].ToString();
+
+
+                ListarAprendice.Add(objUsuarioE);
+
+
+            }
+            return ListarAprendice;
+
+        }
+
     }
 }
