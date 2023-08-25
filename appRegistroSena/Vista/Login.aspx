@@ -6,7 +6,8 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    
+    <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
+    <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
     <link href="css/Login.css" rel="stylesheet" />
 
 

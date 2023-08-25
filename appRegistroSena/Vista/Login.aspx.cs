@@ -44,7 +44,8 @@ namespace appRegistroSena.Vista
             else
             {
                 //Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Usuario o Contraseña incorrectos');", true);
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Usuario o Contraseña incorrectos')", true);
+                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Usuario o Contraseña incorrectos')", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('Usuario No Encontrado! ', 'Usuario o contraseña Incorrectos', 'warning')", true);
             }
         }
     }
