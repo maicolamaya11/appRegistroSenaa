@@ -9,6 +9,7 @@
     <script src="JavaScript/sweetalert-dev.js"></script>
     <link href="css/sweetalert.css" rel="stylesheet" />
     <script src="JavaScript/sweetalert.min.js"></script>
+    <script src="JavaScript/datatables.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <div id="form1" runat="server">

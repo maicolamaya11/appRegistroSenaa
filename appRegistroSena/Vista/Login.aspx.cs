@@ -32,7 +32,7 @@ namespace appRegistroSena.Vista
             {
                 Session["Usuario"] = objDatosU.nombre + " " + objDatosU.apellido;
                 Session["id"] = objDatosU.idUsuario;
-                Response.Redirect("~/Vista/Index.aspx");
+                Response.Redirect("~/Vista/ListarRegistrosRealizados.aspx");
             }
             //else if (objDatosC != null)
             //{

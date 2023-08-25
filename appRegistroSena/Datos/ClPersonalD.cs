@@ -44,7 +44,7 @@ namespace appRegistroSena.Datos
         public List<ClPersonalE> mtdListarAprendices()
         {
 
-            string Consulta = "select idPersonal,nombres,apellidos,documento,programa,rol from Personal join Programa on Programa.idPrograma = Personal.idPrograma where rol = '1'";
+            string Consulta = "select idPersonal,nombres,apellidos,documento,programa,rol from Personal inner join Programa on Programa.idPrograma = Personal.idPrograma where rol = '1'";
 
             ProcesarSQL objSQL = new ProcesarSQL();
             DataTable tblListarAprendices = objSQL.mtdSelectDesc(Consulta);
@@ -55,11 +55,12 @@ namespace appRegistroSena.Datos
                 ClPersonalE objUsuarioE = new ClPersonalE();
 
                 objUsuarioE.idPersonal = int.Parse(tblListarAprendices.Rows[i]["idPersonal"].ToString());
-                objUsuarioE.idPrograma = int.Parse(tblListarAprendices.Rows[i]["idPrograma"].ToString());
+                objUsuarioE.programa = tblListarAprendices.Rows[i]["Programa"].ToString();
+
                 objUsuarioE.nombres = tblListarAprendices.Rows[i]["nombres"].ToString();
                 objUsuarioE.apellidos = tblListarAprendices.Rows[i]["apellidos"].ToString();
                 objUsuarioE.documento = tblListarAprendices.Rows[i]["documento"].ToString();
-                objUsuarioE.programa = tblListarAprendices.Rows[i]["programa"].ToString();
+   
                 objUsuarioE.rol = tblListarAprendices.Rows[i]["rol"].ToString();
                 
 
