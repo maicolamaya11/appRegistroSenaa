@@ -27,5 +27,11 @@ namespace appRegistroSena.Logica
             List<ClPersonalE> listaAprendices = objPersonalD.mtdListarAprendices();
             return listaAprendices;
         }
+        public List<ClPersonalE> mtdRegistroPersonal(int idPersonal)
+        {
+            ClPersonalD objPersonalD = new ClPersonalD();
+            List<ClPersonalE> listaTable = objPersonalD.mtdObtenerAprendicesCod(idPersonal); 
+            return listaTable;
+        }
     }
 }

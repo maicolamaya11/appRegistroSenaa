@@ -1,4 +1,4 @@
-﻿var idReg;
+﻿var idPer;
 var table;
 var listaPersonal;
 
@@ -22,5 +22,39 @@ $(document).ready(function () {
     })
 
 })
+$// Escuchar el evento clic en elementos con la clase '.btnEditar' dentro del elemento con el ID '#DataTableRegistros'
+$('#DataTableRegistros').on('click', '.btnEditar', function (e) {
+    e.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+
+    // Obtener los datos de la fila correspondiente al botón clicado utilizando DataTables
+    var rowData = $('#DataTableRegistros').DataTable().row($(this).closest('tr')).data();
+    var idPer = rowData.idPersonal; // Obtener el ID del personal
+
+    // Realizar una solicitud AJAX para cargar datos utilizando el ID obtenido
+    $.ajax({
+        url: "ListarAprendices.aspx/mtdCargarDatos",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify({ idPersonal: idPer }),
+        success: function (Data) {
+            var datosProducto = Data.d; // Obtener los datos del servidor
+
+            // Llenar los campos en el modal con los datos recibidos
+            $('.txt-nombres-personal').val(datosProducto[0]["nombres"]);
+            $('.txt-apellidos-personal').val(datosProducto[0]["apellidos"]);
+            $('.txt-documento-personal').val(datosProducto[0]["documento"]);
+            $('.txt-programa-personal').val(datosProducto[0]["programa"]);
+            $('.txt-rol-personal').val(datosProducto[0]["rol"]);
+
+            $('#editarModal').modal('show'); // Mostrar el modal de edición
+        },
+        error: function (error) {
+            console.log(error); // Manejar errores en la consola
+        }
+    });
+});
+
+
 
 
