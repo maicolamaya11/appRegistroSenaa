@@ -31,5 +31,14 @@ namespace appRegistroSena.Datos
             }
             return listaProd;
         }
+        public int mtdRegistrarPersonal(ClPersonalE objPersonal)
+        {
+            string Registro = "Insert Into Personal(nombres,apellidos,documento,rol,idPrograma) " +
+                "Values ('" + objPersonal.nombres + "','" + objPersonal.apellidos + "','" + objPersonal.documento + "','" + objPersonal.rol + "','" + objPersonal.idPrograma + "')";
+
+            ProcesarSQL SQL = new ProcesarSQL();
+            int registros = SQL.mtdIUDConec(Registro);
+            return registros;
+        }
     }
 }
