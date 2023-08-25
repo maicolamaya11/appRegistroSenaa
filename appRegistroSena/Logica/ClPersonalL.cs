@@ -15,5 +15,11 @@ namespace appRegistroSena.Logica
             List<ClPersonalE> listaPersonal = objProductoD.mtdBuscar(documento);
             return listaPersonal;
         }
+        public int mtdRegistroPersonal(ClPersonalE objDatos)
+        {
+            ClPersonalD objPersonalD = new ClPersonalD();
+            int registrar = objPersonalD.mtdRegistrarPersonal(objDatos);
+            return registrar;
+        }
     }
 }
