@@ -40,5 +40,24 @@ namespace appRegistroSena.Logica
             int reg = objUsuarioD.mtdEditar(objDatos);
             return reg;
         }
+        public List<ClPersonalE> mtdListarInstructor()
+        {
+            ClPersonalD objPersonalD = new ClPersonalD();
+            List<ClPersonalE> listaAprendices = objPersonalD.mtdListarInstructores();
+            return listaAprendices;
+        }
+        public List<ClPersonalE> mtdRegistroInstructor(int idPersonal)
+        {
+            ClPersonalD objPersonalD = new ClPersonalD();
+            List<ClPersonalE> listaTable = objPersonalD.mtdObtenerInstructorCod(idPersonal);
+            return listaTable;
+        }
+        public int mtdEditarI(ClPersonalE objDatos)
+        {
+
+            ClPersonalD objUsuarioD = new ClPersonalD();
+            int reg = objUsuarioD.mtdEditarInstru(objDatos);
+            return reg;
+        }
     }
 }

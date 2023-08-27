@@ -46,6 +46,12 @@
                                     <span>listado Instructores</span>
                                 </a>
                             </li>
+                              <li class="item">
+                                <a href="ListarAprendices.aspx" class="link flex">
+                                    <i class="bx bx-grid-alt"></i>
+                                    <span>listado Instructores</span>
+                                </a>
+                            </li>
                         </ul>
 
                         <ul class="menu_item">
