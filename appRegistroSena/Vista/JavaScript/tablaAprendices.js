@@ -54,6 +54,80 @@ $('#DataTableRegistros').on('click', '.btnEditar', function (e) {
         }
     });
 });
+$(document).ready(function () {
+    $('#btnActualizar').on('click', function (e) {
+        e.preventDefault();
+
+        var idPersonal = idPer;
+        var nombres = $('.txt-nombres-personal').val();
+        var apellidos = $('.txt-apellidos-personal').val();
+        var documento = $('.txt-documento-personal').val();
+        var idPrograma = $('.txt-programa-personal').val();
+
+        var datosActualizados = {
+            idPersonal: idPersonal,
+            nombres: nombres,
+            apellidos: apellidos,
+            documento: documento,
+            idPrograma: idPrograma,
+        };
+
+        actualizarDatos(datosActualizados);
+    });
+
+    function actualizarDatos(datos) {
+        $.ajax({
+            url: "ListarAprendices.aspx/mtdActualizarAprendiz",
+            type: "POST",
+            data: JSON.stringify({ data: datos }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                recargarTabla();
+                mostrarMensajeExito();
+                $('#editarModal').modal('hide');
+            },
+            error: function (error) {
+                mostrarMensajeError();
+                console.log(error);
+            }
+        });
+    }
+
+    function recargarTabla() {
+        $.ajax({
+            url: "ListarAprendices.aspx/mtdListar",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                actualizarTabla(response.d);
+                console.log(response.d);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+    function actualizarTabla(data) {
+        listaPersonal = data;
+        table.clear();
+        table.rows.add(listaPersonal);
+        table.draw();
+    }
+
+    function mostrarMensajeExito() {
+        swal("¡Éxito!", "Los datos se actualizaron correctamente.", "success");
+    }
+
+    function mostrarMensajeError() {
+        swal("¡Error!", "Hubo un problema al actualizar los datos.", "error");
+    }
+});
+
+
+
 
 
 
