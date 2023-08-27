@@ -17,6 +17,18 @@ namespace appRegistroSena.Vista
         {
             if (!IsPostBack)
             {
+                ClProgramasL objPrograma = new ClProgramasL();
+                List<ClProgramasE> listaProgramas = new List<ClProgramasE>();
+                listaProgramas = objPrograma.mtdLlistarPrograma();
+                ddlPrograma.DataSource = listaProgramas;
+                ddlPrograma.DataTextField = "programa";
+                ddlPrograma.DataValueField = "idPrograma";
+                ddlPrograma.DataBind();
+                ddlPrograma.Items.Insert(0, new ListItem("Seleccione:", "0"));
+
+            }
+            if (!IsPostBack)
+            {
                 ClPersonalL objPersonalL = new ClPersonalL();
                 List<ClPersonalE> listaPersonal = objPersonalL.mtdListarAprendices();
                 string Json = JsonConvert.SerializeObject(listaPersonal, Newtonsoft.Json.Formatting.Indented);
@@ -33,6 +45,32 @@ namespace appRegistroSena.Vista
                 return Registro;
             }
             return null;
+        }
+        [WebMethod]
+        public static string mtdActualizarAprendiz(object data)
+        {
+            ClPersonalL objPersonalL = new ClPersonalL();
+            ClPersonalE objActualizarPersonal = new ClPersonalE();
+
+            var datos = data as IDictionary<string, object>;
+
+            objActualizarPersonal.nombres = datos["nombres"].ToString();
+            objActualizarPersonal.apellidos = datos["apellidos"].ToString();
+            objActualizarPersonal.documento = datos["documento"].ToString();
+            objActualizarPersonal.idPrograma= int.Parse(datos["idPrograma"].ToString());
+            
+
+            int resultado = objPersonalL.mtdEditarP(objActualizarPersonal);
+
+            return "success"; // Devuelve una respuesta al cliente
+        }
+        [WebMethod]
+        public static List<ClPersonalE> mtdListar()
+        {
+            ClPersonalL objPersonalL = new ClPersonalL();
+            List<ClPersonalE> listaPersonal = objPersonalL.mtdListarAprendices();
+
+            return listaPersonal;
         }
     }
 }

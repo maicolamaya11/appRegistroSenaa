@@ -102,6 +102,14 @@ namespace appRegistroSena.Datos
             return ListarAprendice;
 
         }
+        public int mtdEditar(ClPersonalE objDatos)
+
+        {
+            string consulta = "update Personal set documento='" + objDatos.documento + "',nombres='" + objDatos.nombres + "',apellidos='" + objDatos.apellidos + "',programa'" + objDatos.idPrograma + "'";
+            ProcesarSQL objConexion = new ProcesarSQL();
+            int canReg = objConexion.mtdIUDConec(consulta);
+            return canReg;
+        }
 
     }
 }

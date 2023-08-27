@@ -43,8 +43,10 @@
                 <asp:TextBox ID="txtNombre" runat="server" placeholder="Código" class="form-control mb-3 txt-nombres-personal"></asp:TextBox>
                 <asp:TextBox ID="txtApellido" runat="server" placeholder="Estado" class="form-control mb-3 txt-apellidos-personal"></asp:TextBox>
                 <asp:TextBox ID="txtDocumentos" runat="server" placeholder="Fecha Ingreso" class="form-control mb-3 txt-documento-personal h-100"></asp:TextBox>
-                <asp:TextBox ID="txtPrograma" runat="server" placeholder="Hora Ingreso" class="form-control mb-3 txt-programa-personal h-100"></asp:TextBox>
-                <asp:TextBox ID="txtRol" runat="server" placeHolder="Fecha Salida" class="form-control mb-3 txt-rol-personal"></asp:TextBox>
+                <asp:Label ID="Label1" runat="server" Text="Programa"></asp:Label>
+                <asp:DropDownList ID="ddlPrograma" runat="server" class="form-control mb-3 txt-programa-personal h-100"></asp:DropDownList>
+                <%--<asp:TextBox ID="txtPrograma" runat="server" placeholder="Hora Ingreso" class="form-control mb-3 txt-programa-personal h-100"></asp:TextBox>--%>
+               <%-- <asp:TextBox ID="txtRol" runat="server" placeHolder="Fecha Salida" class="form-control mb-3 txt-rol-personal"></asp:TextBox>--%>
             </div>
 
             <div class="modal-footer">
@@ -72,8 +74,8 @@
                 $('#<%= txtNombre.ClientID %>').val(datosProducto[0]["nombres"]);
                 $('#<%= txtApellido.ClientID %>').val(datosProducto[0]["apellidos"]);
                 $('#<%= txtDocumentos.ClientID %>').val(datosProducto[0]["documento"]);
-                $('#<%= txtPrograma.ClientID %>').val(datosProducto[0]["programa"]);
-                $('#<%= txtRol.ClientID %>').val(datosProducto[0]["rol"]);
+                $('#<%= ddlPrograma.ClientID %>').val(datosProducto[0]["idPrograma"]);
+              <%--  $('#<%= txtRol.ClientID %>').val(datosProducto[0]["rol"]);--%>
 
                 $('#editarModal').modal('show');
             },
@@ -83,6 +85,66 @@
         });
     });
 </script>
+          <script>
+              $('#btnActualizar').on('click', function (e) {
+                  e.preventDefault();
 
+                  var idPersonal = idPer;
+                  var nombres = $('.txt-nombres-personal').val();
+                  var apellidos = $('.txt-apellidos-personal').val();
+                  var documento = $('.txt-documento-personal').val();
+                  var idPrograma = $('.txt-programa-personal').val();
+
+
+                  var DatosActualizados = {
+                      idPersonal: idPersonal,
+                      nombres: nombres,
+                      apellidos: apellidos,
+                      documento: documento,
+                      idPrograma: idPrograma,
+                  };
+                  // Realiza la petición Ajax
+                  $.ajax({
+                      url: "ListarAprendices.aspx/mtdActualizarAprendiz",
+                      type: "POST",
+                      data: JSON.stringify({ data: DatosActualizados }),
+                      contentType: "application/json; charset=utf-8",
+                      dataType: "json",
+                      success: function (response) {
+
+                          recargarTabla();
+                          swal("¡Éxito!", "Los datos se actualizaron correctamente.", "success");
+                          $('#editarModal').modal('hide'); // Cierra la ventana modal
+                      },
+                      error: function (error) {
+                          console.log(error);
+                      }
+
+                  });
+              });
+              function recargarTabla() {
+                  $.ajax({
+                      url: "ListarAprendices.aspx/mtdListar",
+                      type: "POST",
+                      contentType: "application/json; charset=utf-8",
+                      dataType: "json",
+                      success: function (response) {
+                          listaPersonal = response.d;
+                          // Limpiar los datos actuales de la tabla
+                          table.clear();
+                          // Agregar los nuevos datos a la tabla
+                          table.rows.add(listaPersonal);
+                          // Dibujar la tabla con los datos actualizados
+                          table.draw();
+
+                          console.log(listaPersonal);
+                      },
+                      error: function (error) {
+                          console.log(error);
+                      }
+                  });
+
+              }
+          </script>
     </div>
 </asp:Content>
