@@ -49,7 +49,7 @@
                               <li class="item">
                                 <a href="ListarAprendices.aspx" class="link flex">
                                     <i class="bx bx-grid-alt"></i>
-                                    <span>listado Instructores</span>
+                                    <span>listado Aprendices</span>
                                 </a>
                             </li>
                         </ul>
