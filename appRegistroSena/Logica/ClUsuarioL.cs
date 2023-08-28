@@ -43,6 +43,13 @@ namespace appRegistroSena.Logica
             return lista;
         }
 
+        public List<ClProgramasE> mtdBuscarProgramas(string busqueda)
+        {
+            ClUsuarioD objProf = new ClUsuarioD();
+            List<ClProgramasE> lista = objProf.mtdBusarPrograma(busqueda);
+            return lista;
+        }
+
         public List<ClUsuarioE> mtdListarAprendices()
         {
             ClUsuarioD objApren = new ClUsuarioD();

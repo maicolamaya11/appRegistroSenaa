@@ -278,6 +278,7 @@
     <Content Include="Vista\JavaScript\sweetalert.min.js" />
     <Content Include="Vista\JavaScript\tablaAprendices.js" />
     <Content Include="Vista\ListaInstructores.aspx" />
+    <Content Include="Vista\ListarInstructores.aspx" />
     <Content Include="Vista\ListaAprendices.aspx" />
     <Content Include="Vista\lis.aspx" />
     <Content Include="Vista\ListaProgramas.aspx" />
@@ -295,6 +296,7 @@
     <Content Include="Vista\RegUsu.aspx" />
     <Content Include="Vista\ReporteAprendiz.aspx" />
     <Content Include="Vista\ReporteInstructor.aspx" />
+    <Content Include="Vista\ReportePrograma.aspx" />
     <Content Include="Vista\ReporteVigilante.aspx" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert-dev.js" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert.min.js" />
@@ -370,11 +372,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Vista\DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Vista\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -388,6 +385,13 @@
     </Compile>
     <Compile Include="Vista\ListaInstructores.aspx.designer.cs">
       <DependentUpon>ListaInstructores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ListarInstructores.aspx.cs">
+      <DependentUpon>ListarInstructores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListarInstructores.aspx.designer.cs">
+      <DependentUpon>ListarInstructores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\ListaAprendices.aspx.cs">
       <DependentUpon>ListaAprendices.aspx</DependentUpon>
@@ -557,6 +561,13 @@
     <Compile Include="Vista\ReporteInstructor.aspx.designer.cs">
       <DependentUpon>ReporteInstructor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\ReportePrograma.aspx.cs">
+      <DependentUpon>ReportePrograma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ReportePrograma.aspx.designer.cs">
+      <DependentUpon>ReportePrograma.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\ReporteVigilante.aspx.cs">
       <DependentUpon>ReporteVigilante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -590,20 +601,8 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
     </None>
-
     <Content Include="Vista\DataSet.xss">
       <DependentUpon>DataSet.xsd</DependentUpon>
-    </Content>
-    <Content Include="Vista\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Content>
-    <None Include="Vista\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Vista\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
     <Content Include="Vista\Vigilante.Master" />
     <None Include="Web.Debug.config">

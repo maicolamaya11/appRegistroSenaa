@@ -80,9 +80,12 @@ namespace appRegistroSena.Vista
                     Usuario.telefono,
                     Usuario.email,
                     Usuario.documento,
-                    programas != null ? programas.ficha : string.Empty,
-                    programas != null ? programas.programa : string.Empty,
-                    programas != null ? programas.jornada : string.Empty);
+                    Usuario.ficha,
+                    Usuario.programa,
+                    Usuario.jornada);
+                //programas != null ? programas.ficha : string.Empty,
+                //    programas != null ? programas.programa : string.Empty,
+                //    programas != null ? programas.jornada : string.Empty);
             }
             return tabla;
         }

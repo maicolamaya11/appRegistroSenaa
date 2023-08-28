@@ -43,6 +43,9 @@ namespace appRegistroSena.Datos
             }
             return listaProgramas;
         }
+
+
+
         public List<ClProgramasE> mtdObtenerProgramasPorId(int idPrograma)
         {
 
