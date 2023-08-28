@@ -33,6 +33,53 @@ namespace appRegistroSena.Datos
             }
             return listaProd;
         }
+
+
+        public List<ClPersonalE> mtdListarVigilante()
+        {
+            string consulta = "select * from Personal where rol = 'Vigilante'";
+            ProcesarSQL SQL = new ProcesarSQL();
+            DataTable tblDatos = SQL.mtdSelectDesc(consulta);
+
+            List<ClPersonalE> listaPerson = new List<ClPersonalE>();
+            for (int i = 0; i < tblDatos.Rows.Count; i++)
+            {
+                ClPersonalE objPersonal = new ClPersonalE();
+                objPersonal.idPersonal = int.Parse(tblDatos.Rows[0]["idPersonal"].ToString());
+                objPersonal.nombres = tblDatos.Rows[0]["nombres"].ToString();
+                objPersonal.apellidos = tblDatos.Rows[0]["apellidos"].ToString();
+                objPersonal.rol = tblDatos.Rows[0]["rol"].ToString();
+                objPersonal.documento = tblDatos.Rows[0]["documento"].ToString();
+
+                listaPerson.Add(objPersonal);
+
+            }
+            return listaPerson;
+        }
+
+        public List<ClPersonalE> mtdBusquedaVigilante(string busqueda)
+        {
+            string consulta = "select * from Personal where (nombres LIKE '"+busqueda+"' OR apellidos LIKE '"+busqueda+"' " +
+                "OR documento LIKE '"+busqueda+"') AND rol = 'Vigilante'";
+            ProcesarSQL SQL = new ProcesarSQL();
+            DataTable tblDatos = SQL.mtdSelectDesc(consulta);
+
+            List<ClPersonalE> listaPerson = new List<ClPersonalE>();
+            for (int i = 0; i < tblDatos.Rows.Count; i++)
+            {
+                ClPersonalE objPersonal = new ClPersonalE();
+                objPersonal.idPersonal = int.Parse(tblDatos.Rows[0]["idPersonal"].ToString());
+                objPersonal.nombres = tblDatos.Rows[0]["nombres"].ToString();
+                objPersonal.apellidos = tblDatos.Rows[0]["apellidos"].ToString();
+                objPersonal.rol = tblDatos.Rows[0]["rol"].ToString();
+                objPersonal.documento = tblDatos.Rows[0]["documento"].ToString();
+
+                listaPerson.Add(objPersonal);
+
+            }
+            return listaPerson;
+        }
+      
         public int mtdRegistrarPersonal(ClPersonalE objPersonal)
         {
             string Registro = "Insert Into Personal(nombres,apellidos,documento,rol,idPrograma) " +

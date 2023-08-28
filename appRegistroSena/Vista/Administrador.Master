@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hoverable Sidebar Menu HTML CSS & JavaScript</title>
+    <title>Administrador</title>
     <link href="css/Estilos_MasterAdmon.css" rel="stylesheet" />
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
@@ -35,13 +35,13 @@
                                 <span class="line"></span>
                             </div>
                             <li class="item">
-                                <a href="ListaRegistrosRealizados.aspx" class="link flex">
+                                <a href="" class="link flex">
                                     <i class="bx bx-home-alt"></i>
                                     <span>Registros Realizados</span>
                                 </a>
                             </li>
                              <li class="item">
-                                <a href="ListaInstructores.aspx" class="link flex">
+                                <a href="" class="link flex">
                                     <i class="bx bx-grid-alt"></i>
                                     <span>listado Instructores</span>
                                 </a>
