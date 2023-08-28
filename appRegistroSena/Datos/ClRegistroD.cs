@@ -12,11 +12,11 @@ namespace appRegistroSena.Datos
     {
         public int mtdRegistro(ClRegistroE objDatos)
         {
-            string Proceso = "AgregarObjetos";
+            string Proceso = "InsertarRegistro";
             ProcesarSQL objSQL = new ProcesarSQL();
             SqlCommand Registro = objSQL.mtdPrceso(Proceso);
-            Registro.Parameters.AddWithValue("@HoraIngreso", objDatos.horaIngreso);
-            Registro.Parameters.AddWithValue("@HoraSalida", objDatos.horaSalida);
+            Registro.Parameters.AddWithValue("@Estado", objDatos.estado);
+            //Registro.Parameters.AddWithValue("@idSalida", objDatos.idSalida);
             Registro.Parameters.AddWithValue("@idPersonal", objDatos.idPersonal);
             Registro.Parameters.AddWithValue("@idPorteria", objDatos.idPorteria);
             Registro.Parameters.AddWithValue("@idUsuario", objDatos.idUsuario);
@@ -24,8 +24,19 @@ namespace appRegistroSena.Datos
             return Registar;
         }
 
-        public List<ClRegistroE> mtdListarRegistros()
+        public List<ClSalidaE> mtdListarRegistros()
         {
+
+            string Consulta = "select r.idRegistro,r.codigo,p.documento,CONCAT(p.nombres,' ',p.apellidos) as 'Nombre Personal'," +
+                "tipoV.tipoVehiculo,tipoO.nombre,CONCAT(usu.nombre,' ',usu.apellido)as 'Nombre Usuario'," +
+                "por.nombrePorteria,ing.horaIngreso, ing.fechaIngreso from Registro as r " +
+                "left join Personal as p on r.idPersonal=p.idPersonal" +
+                " left join TipoVehiculo tipoV on r.idRegistro = tipoV.idRegistro" +
+                " left join Objeto o on r.idRegistro = o.idRegistro" +
+                " left join TipoObjeto tipoO on o.idTipoObjeto = tipoO.idTipoObjeto" +
+                " left join Usuario usu on r.idUsuario = usu.idUsuario" +
+                " left join Porteria por on r.idPorteria = por.idPorteria" +
+                " left join Ingreso ing on r.idIngreso = ing.idIngreso";
 
             string Consulta = "SELECT idRegistro, codigo, Registro.estado, Ingreso.fechaIngreso, Ingreso.horaIngreso, Salida.fechaSalida," +
                 " Salida.horaSalida, Personal.documento, Porteria.nombrePorteria,Usuario.documento FROM Registro JOIN Ingreso " +
@@ -36,9 +47,13 @@ namespace appRegistroSena.Datos
             ProcesarSQL objSQL = new ProcesarSQL();
             DataTable tblListarPersonal = objSQL.mtdSelectDesc(Consulta);
             //DataTable tblListarRegistros = objSQL.mtdSelectDesc(Consulta);
-            List<ClRegistroE> ListarRegistros = new List<ClRegistroE>();
+            List<ClSalidaE> ListarRegistros = new List<ClSalidaE>();
             for (int i = 0; i < tblListarPersonal.Rows.Count; i++)
             {
+
+                ClSalidaE objRegistrosE = new ClSalidaE();
+                objRegistrosE.idRegistro = int.Parse(tblListarPersonal.Rows[i]["idRegistro"].ToString());
+
                 ClRegistroE objRegistrosE = new ClRegistroE();
 
                 objRegistrosE.idRegistro = int.Parse(tblListarPersonal.Rows[i]["IdRegistro"].ToString());
@@ -77,15 +92,16 @@ namespace appRegistroSena.Datos
             {
                 ClRegistroE objRegistrosE = new ClRegistroE();
 
+
                 objRegistrosE.codigo = tblListarPersonal.Rows[i]["codigo"].ToString();
-                objRegistrosE.estado = tblListarPersonal.Rows[i]["estado"].ToString();
-                objRegistrosE.fechaIngreso = tblListarPersonal.Rows[i]["fechaIngreso"].ToString();
+                objRegistrosE.documento = tblListarPersonal.Rows[i]["documento"].ToString();
+                objRegistrosE.NombrePersonal = tblListarPersonal.Rows[i]["Nombre Personal"].ToString();
+                objRegistrosE.tipoVehiculo = tblListarPersonal.Rows[i]["tipoVehiculo"].ToString();
+                objRegistrosE.nombre = tblListarPersonal.Rows[i]["nombre"].ToString();
+                objRegistrosE.NombreUsuario = tblListarPersonal.Rows[i]["Nombre Usuario"].ToString();
+                objRegistrosE.nombrePorteria = tblListarPersonal.Rows[i]["nombrePorteria"].ToString();
                 objRegistrosE.horaIngreso = tblListarPersonal.Rows[i]["horaIngreso"].ToString();
-                objRegistrosE.fechaSalida = tblListarPersonal.Rows[i]["fechaSalida"].ToString();
-                objRegistrosE.horaSalida = tblListarPersonal.Rows[i]["horaSalida"].ToString();
-                objRegistrosE.documentoPerson = tblListarPersonal.Rows[i]["documento"].ToString();
-                objRegistrosE.nombrePort = tblListarPersonal.Rows[i]["nombrePorteria"].ToString();
-                objRegistrosE.documentoUsua = tblListarPersonal.Rows[i]["documento"].ToString();
+                objRegistrosE.fechaIngreso = tblListarPersonal.Rows[i]["fechaIngreso"].ToString();
 
                 ListarRegistros.Add(objRegistrosE);
 
@@ -95,8 +111,15 @@ namespace appRegistroSena.Datos
 
         }
 
-        public int mtdActualizar(ClRegistroE objDatos)
+        public int mtdActualizar(int id)
         {
+
+            string ProcesosAlmacenado = "ActualizarRegistro";
+            ProcesarSQL objSQL = new ProcesarSQL();
+            SqlCommand Actualizar = objSQL.mtdPrceso(ProcesosAlmacenado);
+
+            Actualizar.Parameters.AddWithValue("@idRegistro",id);
+
 
             //string actualizar = "Update Registro set codigo = '" + objDatos.codigo + "', estado = '"+objDatos.estado+"', fechaIngreso = '"+objDatos.fechaIngreso+"'," +
             //    " horaIngreso = '"+objDatos.horaIngreso+"', fechaSalida = '"+objDatos.fechaSalida+"', horaSalida = '"+objDatos.horaSalida+"'," +

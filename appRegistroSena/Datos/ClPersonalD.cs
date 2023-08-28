@@ -25,6 +25,7 @@ namespace appRegistroSena.Datos
             while (BuscarDatos.Read())
             {
                 obDatos = new ClPersonalE();
+                obDatos.idPersonal = BuscarDatos.GetInt32(0);
                 obDatos.nombres = BuscarDatos.GetString(1);
                 obDatos.apellidos = BuscarDatos.GetString(2);
                 obDatos.documento = BuscarDatos.GetString(3);

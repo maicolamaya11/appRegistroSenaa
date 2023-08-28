@@ -16,12 +16,14 @@ namespace appRegistroSena.Logica
             return registro;
         }
 
-        public List<ClRegistroE> mtdListarRegistros()
+        public List<ClSalidaE> mtdListarRegistros()
         {
             ClRegistroD objRegistroD = new ClRegistroD();
-            List<ClRegistroE> listaTable = objRegistroD.mtdListarRegistros();
+            List<ClSalidaE> listaTable = objRegistroD.mtdListarRegistros();
             return listaTable;
         }
+
+        public int mtdActualizacion(int id )
 
         public List<ClRegistroE> mtdRegistroCodigo(int idRegistro)
         {
@@ -31,9 +33,10 @@ namespace appRegistroSena.Logica
         }
 
         public int mtdActualizacion(ClRegistroE objDatos)
+
         {
             ClRegistroD objPersonalD = new ClRegistroD();
-            int actu = objPersonalD.mtdActualizar(objDatos);
+            int actu = objPersonalD.mtdActualizar(id);
             return actu;
         }
 

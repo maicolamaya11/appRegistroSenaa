@@ -41,6 +41,26 @@
                                 </a>
                             </li>
                              <li class="item">
+                                <a href="ListarProgramas.aspx" class="link flex">
+                                    <i class="bx bx-home-alt"></i>
+                                    <span>Informes Programas</span>
+                                </a>
+                            </li>
+                             <li class="item">
+                                <a href="ListarProgramas.aspx" class="link flex">
+                                    <i class="bx bx-home-alt"></i>
+                                    <span>Informes Usuarios</span>
+                                </a>
+                            </li>
+                             <li class="item">
+                                <a href="ListarProgramas.aspx" class="link flex">
+                                    <i class="bx bx-home-alt"></i>
+                                    <span>Informes Personal</span>
+                                </a>
+                            </li>
+                           <%-- <li class="item">
+                                <a href="#" class="link flex">
+
                                 <a href="" class="link flex">
                                     <i class="bx bx-grid-alt"></i>
                                     <span>listado Instructores</span>
@@ -48,6 +68,7 @@
                             </li>
                               <li class="item">
                                 <a href="ListarAprendices.aspx" class="link flex">
+
                                     <i class="bx bx-grid-alt"></i>
                                     <span>listado Aprendices</span>
                                 </a>
@@ -56,7 +77,7 @@
 
                         <ul class="menu_item">
                             <div class="menu_title flex">
-                                <span class="title">Datos</span>
+                                <span class="title">Registrar</span>
                                 <span class="line"></span>
                             </div>
                             <li class="item">
