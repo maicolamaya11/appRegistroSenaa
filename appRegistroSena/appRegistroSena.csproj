@@ -598,6 +598,7 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
     </None>
+ </Content>
     <Content Include="Vista\DataSet.xss">
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Content>
