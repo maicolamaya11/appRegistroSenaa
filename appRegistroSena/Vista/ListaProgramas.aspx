@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Coordinador.Master" AutoEventWireup="true" CodeBehind="ListaInstructores.aspx.cs" Inherits="appRegistroSena.Vista.Lista" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Coordinador.Master" AutoEventWireup="true" CodeBehind="ListaProgramas.aspx.cs" Inherits="appRegistroSena.Vista.ListaProgramas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/Estilos_RegistrarInstruc.css" rel="stylesheet" />
@@ -9,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <h1 class="titulo-h1">LISTADO INSTRUCTORES</h1>
+    <h1 class="titulo-h1">LISTADO PROGRAMAS</h1>
     <section>
         <div class="input-box">
             <i>
@@ -18,7 +18,7 @@
                 </svg>
             </i>
             <input id="txtBusqueda" runat="server" type="text" placeholder="Buscar..." />
-            <asp:Button ID="btnGuardar" class="button" runat="server" Text="Buscar" OnClick="Button1_Click" Style="width: 30%; height: 81%; right: 4px;" />
+            <asp:Button ID="btnGuardar" class="button" runat="server" Text="Buscar" Style="width: 30%; height: 81%; right: 4px;" />
         </div>
     </section>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -44,7 +44,7 @@
     </asp:UpdatePanel>
     <br />
     <br />
-    <asp:Button ID="btnImprimir" runat="server" CssClass="btn-imprimir" Text="Imprimir Reporte" Style="margin-left: 800px;" OnClick="btnImprimir_Click" />
+    <asp:Button ID="btnImprimir" runat="server" CssClass="btn-imprimir" Text="Imprimir Reporte" Style="margin-left: 800px;"/>
 
 
 

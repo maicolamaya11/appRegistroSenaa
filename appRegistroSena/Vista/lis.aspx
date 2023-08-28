@@ -1,13 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Coordinador.Master" AutoEventWireup="true" CodeBehind="ListaInstructores.aspx.cs" Inherits="appRegistroSena.Vista.Lista" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Administrador.Master" AutoEventWireup="true" CodeBehind="lis.aspx.cs" Inherits="appRegistroSena.Vista.ListaInstructores" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <link href="css/Estilos_RegistrarInstruc.css" rel="stylesheet" />
     <link href="css/BarraBusqueda.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <h1 class="titulo-h1">LISTADO INSTRUCTORES</h1>
     <section>
@@ -44,7 +44,7 @@
     </asp:UpdatePanel>
     <br />
     <br />
-    <asp:Button ID="btnImprimir" runat="server" CssClass="btn-imprimir" Text="Imprimir Reporte" Style="margin-left: 800px;" OnClick="btnImprimir_Click" />
+    <asp:Button ID="btnImprimir" runat="server" CssClass="btn-imprimir" Text="Imprimir Reporte" Style="margin-left: 800px;" OnClick="btnImprimir_Click"/>
 
 
 
@@ -76,3 +76,5 @@
         }
     </style>
 </asp:Content>
+
+

@@ -5,14 +5,15 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Caching;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Collections.Specialized.BitVector32;
 
 namespace appRegistroSena.Vista
 {
-    public partial class Lista : System.Web.UI.Page
+    public partial class ListaInstructores : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             ClUsuarioL objServicio = new ClUsuarioL();
@@ -20,7 +21,7 @@ namespace appRegistroSena.Vista
             gvInstructor.DataSource = lista;
 
             gvInstructor.DataBind();
-
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -34,13 +35,13 @@ namespace appRegistroSena.Vista
 
                 ClUsuarioL objProgramas = new ClUsuarioL();
                 List<ClProgramasE> listaP = objProgramas.mtdListarProgramas();
-
+                
                 if (lista.Count > 0)
                 {
                     gvInstructor.DataSource = lista;
                     gvInstructor.DataBind();
                     gvInstructor.Visible = true;
-
+                    
 
                 }
                 else
@@ -49,7 +50,7 @@ namespace appRegistroSena.Vista
 
                 }
 
-                if (listaP != null)
+                if (listaP !=null)
                 {
                     Session["programa"] = listaP;
                     Session["Instructor"] = lista;

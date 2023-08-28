@@ -11,7 +11,7 @@ namespace appRegistroSena.Vista
 {
 
 
-    public partial class Lista
+    public partial class ListaInstructores
     {
 
         /// <summary>

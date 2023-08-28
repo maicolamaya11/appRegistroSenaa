@@ -11,7 +11,7 @@ namespace appRegistroSena.Vista
 {
 
 
-    public partial class Lista
+    public partial class ListaAprendices
     {
 
         /// <summary>
@@ -51,13 +51,13 @@ namespace appRegistroSena.Vista
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
-        /// Control gvInstructor.
+        /// Control gvAprendiz.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvInstructor;
+        protected global::System.Web.UI.WebControls.GridView gvAprendiz;
 
         /// <summary>
         /// Control btnImprimir.

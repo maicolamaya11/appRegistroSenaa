@@ -15,5 +15,19 @@ namespace appRegistroSena.Logica
             List<ClPersonalE> listaPersonal = objProductoD.mtdBuscar(documento);
             return listaPersonal;
         }
+
+        public List<ClPersonalE> mtdListarVigilante()
+        {
+            ClPersonalD objVigilanteD = new ClPersonalD();
+            List<ClPersonalE> listaPersonal = objVigilanteD.mtdListarVigilante();
+            return listaPersonal;
+        }
+
+        public List<ClPersonalE> mtdBuscarVigilante(string busqueda)
+        {
+            ClPersonalD objVigilanteD = new ClPersonalD();
+            List<ClPersonalE> listaPersonal = objVigilanteD.mtdBusquedaVigilante(busqueda);
+            return listaPersonal;
+        }
     }
 }
