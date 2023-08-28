@@ -456,7 +456,7 @@
     </Compile>
     <Compile Include="Vista\ListarProgramasCoor.aspx.designer.cs">
       <DependentUpon>ListarProgramasCoor.aspx</DependentUpon>
-
+</Compile>
     <Compile Include="Vista\ListaVigilantes.aspx.cs">
       <DependentUpon>ListaVigilantes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
