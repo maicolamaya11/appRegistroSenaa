@@ -30,17 +30,19 @@ namespace appRegistroSena.Vista
         {
             ClRegistroL objPersonalL = new ClRegistroL();
             List<ClSalidaE> listaPersonal = objPersonalL.mtdListarRegistros();
-
-        public static List<ClRegistroE> mtdCargarDatos(int idRegistro)
-        {
-            ClRegistroL objRegistro = new ClRegistroL();
-            List<ClRegistroE> Registro = objRegistro.mtdRegistroCodigo(idRegistro);
-            if (Registro.Count > 0)
-            {
-                return Registro;
-            }
-            return null;
+            return listaPersonal;
         }
+
+        //public static List<ClRegistroE> mtdCargarDatos(int idRegistro)
+        //{
+        //    ClRegistroL objRegistro = new ClRegistroL();
+        //    List<ClRegistroE> Registro = objRegistro.mtdRegistroCodigo(idRegistro);
+        //    if (Registro.Count > 0)
+        //    {
+        //        return Registro;
+        //    }
+        //    return null;
+        //}
 
         [WebMethod]
         public static string mtdActualizarPersonal(object data)
@@ -60,7 +62,7 @@ namespace appRegistroSena.Vista
             objActualizarPersonal.nombrePort = datos["nombrePort"].ToString();
 
 
-            return listaPersonal;
+            return "";
         }
         [WebMethod]
         public static int cargardatos(int idRegistro)
@@ -81,8 +83,8 @@ namespace appRegistroSena.Vista
 
             int registro = objSalidaL.mtdIngresarSalida(objDatos);
 
-            var data = formData as IDictionary<string, object>;
-            objEliminarPersonal.idRegistro = int.Parse(data["idRegistro"].ToString());
+            //var data = formData as IDictionary<string, object>;
+            //objEliminarPersonal.idRegistro = int.Parse(data["idRegistro"].ToString());
 
 
             ClRegistroL objPersonalL = new ClRegistroL();

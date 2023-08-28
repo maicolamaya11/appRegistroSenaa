@@ -34,27 +34,6 @@ namespace appRegistroSena.Vista
 
         /// <summary>
         /// Control lblEstado.
-
-        /// Control txtEstado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstado;
-
-        /// <summary>
-        /// Control txtFechaIngreso.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaIngreso;
-
-        /// <summary>
-        /// Control txtHoraIngreso.
-
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -64,16 +43,6 @@ namespace appRegistroSena.Vista
 
         /// <summary>
         /// Control txtEstado.
-        /// Control txtFechaSalida.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaSalida;
-
-        /// <summary>
-        /// Control txtHoraSalida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

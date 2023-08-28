@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -159,6 +159,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
@@ -192,6 +193,7 @@
     <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
@@ -231,19 +233,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="bin\appRegistroSena.dll" />
+    <Content Include="bin\appRegistroSena.pdb" />
+    <Content Include="Connected Services\WebService\appRegistroSena.WebService.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="Connected Services\WebService\appRegistroSena.WebService.mtdRegistrarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="Connected Services\WebService\Servicio.disco" />
+    <None Include="Connected Services\WebService\configuration91.svcinfo" />
+    <None Include="Connected Services\WebService\configuration.svcinfo" />
+    <None Include="Connected Services\WebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Global.asax" />
     <Content Include="Vista\Boostrap\Boostrap.css" />
     <Content Include="Vista\css\BarraBusqueda.css" />
     <Content Include="Vista\css\Carrusel.css" />
@@ -252,7 +257,9 @@
     <Content Include="Vista\css\Estilos_RegistrarInstruc.css" />
     <Content Include="Vista\css\Estilos_RegistrarPrograma.css" />
     <Content Include="Vista\css\Index.css" />
+    <Content Include="Vista\css\Input.css" />
     <Content Include="Vista\css\Login.css" />
+    <Content Include="Vista\css\PaginaInicio.css" />
     <Content Include="Vista\css\RegistrarPersonal.css" />
     <Content Include="Vista\css\sweetalert.css" />
     <Content Include="Vista\Imagenes\centro.jpg" />
@@ -269,16 +276,23 @@
     <Content Include="Vista\JavaScript\jquery-3.6.0.js" />
     <Content Include="Vista\JavaScript\sweetalert-dev.js" />
     <Content Include="Vista\JavaScript\sweetalert.min.js" />
+    <Content Include="Vista\JavaScript\tablaAprendices.js" />
     <Content Include="Vista\ListaInstructores.aspx" />
     <Content Include="Vista\ListaAprendices.aspx" />
     <Content Include="Vista\lis.aspx" />
     <Content Include="Vista\ListaProgramas.aspx" />
+    <Content Include="Vista\ListarAprendices.aspx" />
     <Content Include="Vista\ListaRegistrosRealizados.aspx" />
+    <Content Include="Vista\ListarProgramas.aspx" />
+    <Content Include="Vista\ListarProgramasCoor.aspx" />
     <Content Include="Vista\ListaVigilantes.aspx" />
     <Content Include="Vista\Login.aspx" />
+    <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\PrincipalAdministrador.aspx" />
     <Content Include="Vista\RegistrarPersonal.aspx" />
+    <Content Include="Vista\RegistrarTipoVehiculo.aspx" />
     <Content Include="Vista\RegistrarUsuarios.aspx" />
+    <Content Include="Vista\RegUsu.aspx" />
     <Content Include="Vista\ReporteAprendiz.aspx" />
     <Content Include="Vista\ReporteInstructor.aspx" />
     <Content Include="Vista\ReporteVigilante.aspx" />
@@ -304,13 +318,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Datos\ClProgramasD.cs" />
     <Compile Include="Datos\ClConexion.cs" />
+    <Compile Include="Datos\ClSalidaD.cs" />
     <Compile Include="Datos\ClUsuarioD.cs" />
     <Compile Include="Datos\ProcesarSQL.cs" />
     <Compile Include="Entidades\ClProgramasE.cs" />
+    <Compile Include="Entidades\ClSalida1E.cs" />
+    <Compile Include="Entidades\ClSalidaE.cs" />
+    <Compile Include="Entidades\ClTipoObjetoE.cs" />
+    <Compile Include="Entidades\ClTipoVehiculoE.cs" />
     <Compile Include="Entidades\ClUsuarioE.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Logica\ClProgramasL.cs" />
+    <Compile Include="Logica\ClSalidaL.cs" />
     <Compile Include="Logica\ClUsuarioL.cs" />
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClPorteriaD.cs" />
@@ -321,8 +349,8 @@
     <Compile Include="Logica\ClPersonalL.cs" />
     <Compile Include="Logica\ClPorteriaL.cs" />
     <Compile Include="Logica\ClRegistroL.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Vista\Administrador.Master.cs">
       <DependentUpon>Administrador.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -382,12 +410,33 @@
     <Compile Include="Vista\ListaProgramas.aspx.designer.cs">
       <DependentUpon>ListaProgramas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\ListarAprendices.aspx.cs">
+      <DependentUpon>ListarAprendices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListarAprendices.aspx.designer.cs">
+      <DependentUpon>ListarAprendices.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\ListaRegistrosRealizados.aspx.cs">
       <DependentUpon>ListaRegistrosRealizados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vista\ListaRegistrosRealizados.aspx.designer.cs">
       <DependentUpon>ListaRegistrosRealizados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ListarProgramas.aspx.cs">
+      <DependentUpon>ListarProgramas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListarProgramas.aspx.designer.cs">
+      <DependentUpon>ListarProgramas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ListarProgramasCoor.aspx.cs">
+      <DependentUpon>ListarProgramasCoor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListarProgramasCoor.aspx.designer.cs">
+      <DependentUpon>ListarProgramasCoor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\ListaVigilantes.aspx.cs">
       <DependentUpon>ListaVigilantes.aspx</DependentUpon>
@@ -409,6 +458,13 @@
     </Compile>
     <Compile Include="Vista\NavbarIndex.Master.designer.cs">
       <DependentUpon>NavbarIndex.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Principal.aspx.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Principal.aspx.designer.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
@@ -452,6 +508,13 @@
     <Compile Include="Vista\RegistrarPrograma.aspx.designer.cs">
       <DependentUpon>RegistrarPrograma.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\RegistrarTipoVehiculo.aspx.cs">
+      <DependentUpon>RegistrarTipoVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegistrarTipoVehiculo.aspx.designer.cs">
+      <DependentUpon>RegistrarTipoVehiculo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\RegistrarUsuarios.aspx.cs">
       <DependentUpon>RegistrarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -472,6 +535,13 @@
     </Compile>
     <Compile Include="Vista\RegObjeto.aspx.designer.cs">
       <DependentUpon>RegObjeto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\RegUsu.aspx.cs">
+      <DependentUpon>RegUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegUsu.aspx.designer.cs">
+      <DependentUpon>RegUsu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\ReporteAprendiz.aspx.cs">
       <DependentUpon>ReporteAprendiz.aspx</DependentUpon>
@@ -494,8 +564,16 @@
     <Compile Include="Vista\ReporteVigilante.aspx.designer.cs">
       <DependentUpon>ReporteVigilante.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Vigilante.Master.cs">
+      <DependentUpon>Vigilante.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Vigilante.Master.designer.cs">
+      <DependentUpon>Vigilante.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\WebService\Servicio.wsdl" />
     <None Include="packages.config" />
     <Content Include="Vista\Principal.Master" />
     <Content Include="Vista\Administrador.Master" />
@@ -526,6 +604,7 @@
     <Content Include="Vista\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
+    <Content Include="Vista\Vigilante.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -533,11 +612,20 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportAprendiz.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportInstructor.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportVigilante.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\roslyn\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WebService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

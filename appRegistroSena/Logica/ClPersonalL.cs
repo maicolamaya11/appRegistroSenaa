@@ -28,6 +28,7 @@ namespace appRegistroSena.Logica
             ClPersonalD objVigilanteD = new ClPersonalD();
             List<ClPersonalE> listaPersonal = objVigilanteD.mtdBusquedaVigilante(busqueda);
             return listaPersonal;
+        }
 
         public int mtdRegistroPersonal(ClPersonalE objDatos)
         {

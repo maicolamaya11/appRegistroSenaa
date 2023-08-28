@@ -16,6 +16,7 @@
         <div class="container my-2" style="margin-left: 380px; width: 40%;">
             <div class="row flex-shrink-1" style="margin-top: 50px;">
                 <table id="DataTableRegistros" class="table table-striped">
+                      <h1 style="text-align: center">Listado Instructores</h1>
                     <thead>
                         <tr>
                             <th>nombres</th>

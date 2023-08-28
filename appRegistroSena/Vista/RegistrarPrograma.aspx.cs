@@ -25,14 +25,17 @@ namespace appRegistroSena.Vista
         {
             string programa = txtPrograma.Text.Trim();
             string ficha = txtFicha.Text.Trim();
+            string jornada = txtJornada.Text.Trim();
 
             ClProgramasE objPrograma = new ClProgramasE();
             objPrograma.programa = txtPrograma.Text;
             objPrograma.ficha = txtFicha.Text;
+            objPrograma.jornada = txtJornada.Text;
 
 
             txtPrograma.Text = string.Empty;
             txtFicha.Text = string.Empty;
+            txtJornada.Text = string.Empty;
 
 
             ClProgramasL objProgramas = new ClProgramasL();
@@ -42,7 +45,7 @@ namespace appRegistroSena.Vista
             if (registro == 1)
             {
 
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('Usuario No Registrado! ', 'Su usuario no ha Sido Registrado Con Exito', 'warning')", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('Programa Registrado! ', 'Su Programa ha Sido Registrado Con Exito', 'success')", true);
             }
         }
     }

@@ -3,6 +3,7 @@
     <link href="css/RegistrarPersonal.css" rel="stylesheet" />
     <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
     <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
+    <link href="css/Input.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <div class="registration-container">
@@ -38,7 +39,7 @@
             
             
              <asp:Label ID="Label1" runat="server" Text="Rol: "></asp:Label>
-                        <select id="ddlRol" name="rol" runat="server" >
+                        <select id="ddlRol" class="form__input" name="rol" runat="server" >
                             <option value="Seleccionar Rol">Seleccionar Rol</option>
                             <option value="Instructor">Instructor</option>
                             <option value="aprendiz">Aprendiz</option>
@@ -47,7 +48,7 @@
             <br />
             <br />
             <asp:Label ID="Label2" runat="server" Text="Programa: " ></asp:Label>
-            <asp:DropDownList ID="ddlPrograma" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="ddlPrograma" CssClass="form__input" runat="server"></asp:DropDownList>
             <br />
             <br />
             <asp:Button ID="btnRegistrarse" runat="server" Text="Registrarse" type="submit" onclick="btnRegistrarse_Click"/>

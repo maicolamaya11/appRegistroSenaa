@@ -75,6 +75,7 @@ namespace appRegistroSena.Datos
                 objPersonal.rol = tblDatos.Rows[0]["rol"].ToString();
                 objPersonal.documento = tblDatos.Rows[0]["documento"].ToString();
 
+
                 listaPerson.Add(objPersonal);
 
             }
@@ -111,6 +112,7 @@ namespace appRegistroSena.Datos
                 objUsuarioE.documento = tblListarAprendices.Rows[i]["documento"].ToString();
    
                 objUsuarioE.rol = tblListarAprendices.Rows[i]["rol"].ToString();
+              
                 
 
                 ListarAprendice.Add(objUsuarioE);
@@ -141,7 +143,7 @@ namespace appRegistroSena.Datos
                 objUsuarioE.documento = tblListarAprendices.Rows[i]["documento"].ToString();
 
                 objUsuarioE.rol = tblListarAprendices.Rows[i]["rol"].ToString();
-
+ 
 
                 ListarAprendice.Add(objUsuarioE);
 
@@ -179,8 +181,7 @@ namespace appRegistroSena.Datos
                 objUsuarioE.documento = tblListarAprendices.Rows[i]["documento"].ToString();
 
                 objUsuarioE.rol = tblListarAprendices.Rows[i]["rol"].ToString();
-
-
+   
                 ListarAprendice.Add(objUsuarioE);
 
 
@@ -209,7 +210,7 @@ namespace appRegistroSena.Datos
                 objUsuarioE.documento = tblListarAprendices.Rows[i]["documento"].ToString();
 
                 objUsuarioE.rol = tblListarAprendices.Rows[i]["rol"].ToString();
-
+                objUsuarioE.idPrograma = int.Parse(tblListarAprendices.Rows[i]["idPrograma"].ToString());
 
                 ListarAprendice.Add(objUsuarioE);
 

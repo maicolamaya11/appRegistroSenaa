@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Principal.Master" AutoEventWireup="true" CodeBehind="RegistroUsuarios.aspx.cs" Inherits="appRegistroSena.Vista.RegistroUsuarios" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Vigilante.Master" AutoEventWireup="true" CodeBehind="RegistroUsuarios.aspx.cs" Inherits="appRegistroSena.Vista.RegistroUsuarios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">

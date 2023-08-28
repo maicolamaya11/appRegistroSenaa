@@ -138,7 +138,7 @@ namespace appRegistroSena.Datos
                 objAprendiz.programa = tblApren.Rows[i]["programa"].ToString();
                 objAprendiz.ficha = tblApren.Rows[i]["ficha"].ToString();
                 objAprendiz.jornada = tblApren.Rows[i]["jornada"].ToString();
-
+                objAprendiz.idPrograma = int.Parse(tblApren.Rows[i]["idPrograma"].ToString());
 
                 listaApren.Add(objAprendiz);
             }

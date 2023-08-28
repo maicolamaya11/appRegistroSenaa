@@ -15,8 +15,8 @@ namespace appRegistroSena.Datos
     {
         public int mtdRegistroPrograma(ClProgramasE objPrograma)
         {
-            string Registro = "Insert Into Programa(programa,ficha) " +
-                "Values('" + objPrograma.programa + "','" + objPrograma.ficha + "')";
+            string Registro = "Insert Into Programa(programa,ficha,jornada) " +
+                "Values('" + objPrograma.programa + "','" + objPrograma.ficha + "','"+objPrograma.jornada+"')";
 
             ProcesarSQL SQL = new ProcesarSQL();
             int registros = SQL.mtdIUDConec(Registro);
@@ -89,27 +89,9 @@ namespace appRegistroSena.Datos
             return Eliminar;
         }
 
-            string Consulta = "select * from Programa";
-
-            ProcesarSQL objSQL = new ProcesarSQL();
-            DataTable tblListarProgramas = objSQL.mtdSelectDesc(Consulta);
-
-            List<ClProgramasE> ListarProgramas = new List<ClProgramasE>();
-            for (int i = 0; i < tblListarProgramas.Rows.Count; i++)
-            {
-                ClProgramasE objProgramas = new ClProgramasE();
-
-                objProgramas.idPrograma = int.Parse(tblListarProgramas.Rows[i]["idPrograma"].ToString());
-                objProgramas.programa = tblListarProgramas.Rows[i]["programa"].ToString();
-                objProgramas.ficha = tblListarProgramas.Rows[i]["ficha"].ToString();
-
-                ListarProgramas.Add(objProgramas);
 
 
-            }
-            return ListarProgramas;
-
-        }
     }
 }
-    
+
+

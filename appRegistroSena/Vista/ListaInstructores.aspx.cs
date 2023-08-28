@@ -28,43 +28,51 @@ namespace appRegistroSena.Vista
                 ddlPrograma.Items.Insert(0, new ListItem("Seleccione:", "0"));
 
 
-            gvInstructor.DataBind();
 
+                if (!IsPostBack)
+                {
+                    ClPersonalL objPersonalL = new ClPersonalL();
+                    List<ClPersonalE> listaPersonal = objPersonalL.mtdListarInstructor();
+                    string Json = JsonConvert.SerializeObject(listaPersonal, Newtonsoft.Json.Formatting.Indented);
+                    ClientScript.RegisterStartupScript(GetType(), "JsonScript", $"var jsonData = {Json};", true);
+
+                }
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string busqueda = txtBusqueda.Value.Trim();
+            //string busqueda = txtBusqueda.Value.Trim();
 
-            if (!string.IsNullOrEmpty(busqueda))
-            {
-                ClUsuarioL objServicio = new ClUsuarioL();
-                List<ClUsuarioE> lista = objServicio.mtdBuscarInstructor(busqueda);
+            //if (!string.IsNullOrEmpty(busqueda))
+            //{
+            //    ClUsuarioL objServicio = new ClUsuarioL();
+            //    List<ClUsuarioE> lista = objServicio.mtdBuscarInstructor(busqueda);
 
-                ClUsuarioL objProgramas = new ClUsuarioL();
-                List<ClProgramasE> listaP = objProgramas.mtdListarProgramas();
+            //    ClUsuarioL objProgramas = new ClUsuarioL();
+            //    List<ClProgramasE> listaP = objProgramas.mtdListarProgramas();
 
-                if (lista.Count > 0)
-                {
-                    gvInstructor.DataSource = lista;
-                    gvInstructor.DataBind();
-                    gvInstructor.Visible = true;
+            //    if (lista.Count > 0)
+            //    {
+                    //gvInstructor.DataSource = lista;
+                    //gvInstructor.DataBind();
+                    //gvInstructor.Visible = true;
 
 
-                }
-                else
-                {
-                    gvInstructor.Visible = false;
+            //    }
+            //    else
+            //    {
+            //        //gvInstructor.Visible = false;
 
-                }
+            //    }
 
-                if (listaP != null)
-                {
-                    Session["programa"] = listaP;
-                    Session["Instructor"] = lista;
-                }
+            //    if (listaP != null)
+            //    {
+            //        Session["programa"] = listaP;
+            //        Session["Instructor"] = lista;
+            //    }
 
-            }
+            //}
 
         }
 
@@ -109,18 +117,10 @@ namespace appRegistroSena.Vista
             Session["ReporteInstructor"] = dtUsuarios;
             Response.Redirect("ReporteInstructor.aspx");
         }
-    }
-}
 
-            }
-            if (!IsPostBack)
-            {
-                ClPersonalL objPersonalL = new ClPersonalL();
-                List<ClPersonalE> listaPersonal = objPersonalL.mtdListarInstructor();
-                string Json = JsonConvert.SerializeObject(listaPersonal, Newtonsoft.Json.Formatting.Indented);
-                ClientScript.RegisterStartupScript(GetType(), "JsonScript", $"var jsonData = {Json};", true);
-            }
-        }
+
     }
-    }
+
+
+}
 

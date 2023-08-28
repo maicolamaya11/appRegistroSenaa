@@ -6,8 +6,9 @@
     <link href="css/Estilos_RegistrarPrograma.css" rel="stylesheet" />
     <!-- Fontawesome CDN Link -->
     <script src="https://kit.fontawesome.com/e5246dcec8.js" crossorigin="anonymous"></script>
-    <script src="../Scripts/sweetalert.min.js"></script>
-    <link href="Css/sweetalert.css" rel="stylesheet" />
+    <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
+    <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -34,10 +35,13 @@
                                 <i class="fa-solid fa-screwdriver-wrench"></i>
                                 <asp:TextBox ID="txtPrograma" placeholder="Ingresar Nombre Programa" runat="server"></asp:TextBox>
                             </div>
-                            <br />
                             <div class="input-box">
                                 <i class="fa-solid fa-screwdriver-wrench"></i>
                                 <asp:TextBox ID="txtFicha" placeholder="Ingresar Numero Ficha" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="input-box">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                <asp:TextBox ID="txtJornada" placeholder="Ingresar Jornada" runat="server"></asp:TextBox>
                             </div>
                             <div class="button input-box">
                                 <asp:Button ID="Button1" runat="server" Text="Registrar" OnClick="Button1_Click1"/>

@@ -35,27 +35,39 @@
                                 <span class="line"></span>
                             </div>
                             <li class="item">
-                                <a href="" class="link flex">
+                                <a href="ListarAprendices.aspx" class="link flex">
                                     <i class="bx bx-home-alt"></i>
-                                    <span>Registros Realizados</span>
+                                    <span>Listar Instructores</span>
                                 </a>
                             </li>
                              <li class="item">
                                 <a href="ListarProgramas.aspx" class="link flex">
                                     <i class="bx bx-home-alt"></i>
-                                    <span>Informes Programas</span>
+                                    <span>Listar Programas</span>
                                 </a>
                             </li>
                              <li class="item">
-                                <a href="ListarProgramas.aspx" class="link flex">
+                                <a href="ListaInstructores.aspx" class="link flex">
                                     <i class="bx bx-home-alt"></i>
-                                    <span>Informes Usuarios</span>
+                                    <span>Listar Aprendices</span>
                                 </a>
                             </li>
                              <li class="item">
-                                <a href="ListarProgramas.aspx" class="link flex">
+                                <a href="RegistrarUsuarios.aspx" class="link flex">
                                     <i class="bx bx-home-alt"></i>
-                                    <span>Informes Personal</span>
+                                    <span>Registrar Usuarios</span>
+                                </a>
+                            </li>
+                            <li class="item">
+                                <a href="RegistrarPrograma.aspx" class="link flex">
+                                    <i class="bx bx-home-alt"></i>
+                                    <span>Registrar Programa</span>
+                                </a>
+                            </li>
+                            <li class="item">
+                                <a href="RegistrarPersonal.aspx" class="link flex">
+                                    <i class="bx bx-home-alt"></i>
+                                    <span>Registrar Personal</span>
                                 </a>
                             </li>
                            <%-- <li class="item">

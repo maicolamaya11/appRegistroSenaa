@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Principal.Master" AutoEventWireup="true" CodeBehind="RegistrarTipoVehiculo.aspx.cs" Inherits="appRegistroSena.Vista.RegistrarTipoVehiculo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Vigilante.Master" AutoEventWireup="true" CodeBehind="RegistrarTipoVehiculo.aspx.cs" Inherits="appRegistroSena.Vista.RegistrarTipoVehiculo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/RegistroObjeto.css" rel="stylesheet" />

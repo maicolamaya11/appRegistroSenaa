@@ -16,7 +16,7 @@ namespace appRegistroSena.Datos
 
             conexion = new SqlConnection("Data Source=DESKTOP-JRTUVHD\\SQLEXPRESS;Initial Catalog=RegistroSena;Integrated Security=True");
 
-            conexion = new SqlConnection("Data Source=.;Initial Catalog=dbRegistroSena;Integrated Security=True");
+            //conexion = new SqlConnection("Data Source=.;Initial Catalog=dbRegistroSena;Integrated Security=True");
 
 
             conexion.Open();

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Administrador.Master" AutoEventWireup="true" CodeBehind="RegistrarUsuarios.aspx.cs" Inherits="appRegistroSena.Vista.RegistrarUsuarios" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Vigilante.Master" AutoEventWireup="true" CodeBehind="RegUsu.aspx.cs" Inherits="appRegistroSena.Vista.RegTipoVehiculo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
@@ -13,12 +13,10 @@
     <script src="script.js"></script>
     <title>Registrar Usuario</title>
     <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
+
     <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
     <link href="css/Input.css" rel="stylesheet" />
-
 </asp:Content>
-
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="containers" runat="server">
         <div class="forms">
@@ -68,5 +66,4 @@
             </div>
         </div>
     </div>
-
 </asp:Content>

@@ -28,11 +28,10 @@ namespace appRegistroSena.Vista
             //ClCoachE objDatosC = objCoachL.mtdDatosLogin(documento, contraseña);
 
             if (objDatosU != null)
-
             {
                 Session["Usuario"] = objDatosU.nombre + " " + objDatosU.apellido;
                 Session["id"] = objDatosU.idUsuario;
-                Response.Redirect("~/Vista/ListarRegistrosRealizados.aspx");
+                Response.Redirect("~/Vista/RegistrarPrograma.aspx");
             }
             //else if (objDatosC != null)
             //{

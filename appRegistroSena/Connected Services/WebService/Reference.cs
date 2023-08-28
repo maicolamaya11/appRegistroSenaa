@@ -8,26 +8,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace appRegistroSena.RegistrarServicio {
+namespace appRegistroSena.WebService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="RegistrarServicio.ServicioSoap")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WebService.ServicioSoap")]
     public interface ServicioSoap {
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento HelloWorldResult del espacio de nombres http://tempuri.org/ no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        appRegistroSena.RegistrarServicio.HelloWorldResponse HelloWorld(appRegistroSena.RegistrarServicio.HelloWorldRequest request);
+        appRegistroSena.WebService.HelloWorldResponse HelloWorld(appRegistroSena.WebService.HelloWorldRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
-        System.Threading.Tasks.Task<appRegistroSena.RegistrarServicio.HelloWorldResponse> HelloWorldAsync(appRegistroSena.RegistrarServicio.HelloWorldRequest request);
+        System.Threading.Tasks.Task<appRegistroSena.WebService.HelloWorldResponse> HelloWorldAsync(appRegistroSena.WebService.HelloWorldRequest request);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento tipoVehiculo del espacio de nombres http://tempuri.org/ no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/mtdRegistrar", ReplyAction="*")]
-        appRegistroSena.RegistrarServicio.mtdRegistrarResponse mtdRegistrar(appRegistroSena.RegistrarServicio.mtdRegistrarRequest request);
+        appRegistroSena.WebService.mtdRegistrarResponse mtdRegistrar(appRegistroSena.WebService.mtdRegistrarRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/mtdRegistrar", ReplyAction="*")]
-        System.Threading.Tasks.Task<appRegistroSena.RegistrarServicio.mtdRegistrarResponse> mtdRegistrarAsync(appRegistroSena.RegistrarServicio.mtdRegistrarRequest request);
+        System.Threading.Tasks.Task<appRegistroSena.WebService.mtdRegistrarResponse> mtdRegistrarAsync(appRegistroSena.WebService.mtdRegistrarRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -37,12 +37,12 @@ namespace appRegistroSena.RegistrarServicio {
     public partial class HelloWorldRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorld", Namespace="http://tempuri.org/", Order=0)]
-        public appRegistroSena.RegistrarServicio.HelloWorldRequestBody Body;
+        public appRegistroSena.WebService.HelloWorldRequestBody Body;
         
         public HelloWorldRequest() {
         }
         
-        public HelloWorldRequest(appRegistroSena.RegistrarServicio.HelloWorldRequestBody Body) {
+        public HelloWorldRequest(appRegistroSena.WebService.HelloWorldRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -64,12 +64,12 @@ namespace appRegistroSena.RegistrarServicio {
     public partial class HelloWorldResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="HelloWorldResponse", Namespace="http://tempuri.org/", Order=0)]
-        public appRegistroSena.RegistrarServicio.HelloWorldResponseBody Body;
+        public appRegistroSena.WebService.HelloWorldResponseBody Body;
         
         public HelloWorldResponse() {
         }
         
-        public HelloWorldResponse(appRegistroSena.RegistrarServicio.HelloWorldResponseBody Body) {
+        public HelloWorldResponse(appRegistroSena.WebService.HelloWorldResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -98,12 +98,12 @@ namespace appRegistroSena.RegistrarServicio {
     public partial class mtdRegistrarRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="mtdRegistrar", Namespace="http://tempuri.org/", Order=0)]
-        public appRegistroSena.RegistrarServicio.mtdRegistrarRequestBody Body;
+        public appRegistroSena.WebService.mtdRegistrarRequestBody Body;
         
         public mtdRegistrarRequest() {
         }
         
-        public mtdRegistrarRequest(appRegistroSena.RegistrarServicio.mtdRegistrarRequestBody Body) {
+        public mtdRegistrarRequest(appRegistroSena.WebService.mtdRegistrarRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -144,12 +144,12 @@ namespace appRegistroSena.RegistrarServicio {
     public partial class mtdRegistrarResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="mtdRegistrarResponse", Namespace="http://tempuri.org/", Order=0)]
-        public appRegistroSena.RegistrarServicio.mtdRegistrarResponseBody Body;
+        public appRegistroSena.WebService.mtdRegistrarResponseBody Body;
         
         public mtdRegistrarResponse() {
         }
         
-        public mtdRegistrarResponse(appRegistroSena.RegistrarServicio.mtdRegistrarResponseBody Body) {
+        public mtdRegistrarResponse(appRegistroSena.WebService.mtdRegistrarResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -172,12 +172,12 @@ namespace appRegistroSena.RegistrarServicio {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ServicioSoapChannel : appRegistroSena.RegistrarServicio.ServicioSoap, System.ServiceModel.IClientChannel {
+    public interface ServicioSoapChannel : appRegistroSena.WebService.ServicioSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicioSoapClient : System.ServiceModel.ClientBase<appRegistroSena.RegistrarServicio.ServicioSoap>, appRegistroSena.RegistrarServicio.ServicioSoap {
+    public partial class ServicioSoapClient : System.ServiceModel.ClientBase<appRegistroSena.WebService.ServicioSoap>, appRegistroSena.WebService.ServicioSoap {
         
         public ServicioSoapClient() {
         }
@@ -199,57 +199,57 @@ namespace appRegistroSena.RegistrarServicio {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        appRegistroSena.RegistrarServicio.HelloWorldResponse appRegistroSena.RegistrarServicio.ServicioSoap.HelloWorld(appRegistroSena.RegistrarServicio.HelloWorldRequest request) {
+        appRegistroSena.WebService.HelloWorldResponse appRegistroSena.WebService.ServicioSoap.HelloWorld(appRegistroSena.WebService.HelloWorldRequest request) {
             return base.Channel.HelloWorld(request);
         }
         
         public string HelloWorld() {
-            appRegistroSena.RegistrarServicio.HelloWorldRequest inValue = new appRegistroSena.RegistrarServicio.HelloWorldRequest();
-            inValue.Body = new appRegistroSena.RegistrarServicio.HelloWorldRequestBody();
-            appRegistroSena.RegistrarServicio.HelloWorldResponse retVal = ((appRegistroSena.RegistrarServicio.ServicioSoap)(this)).HelloWorld(inValue);
+            appRegistroSena.WebService.HelloWorldRequest inValue = new appRegistroSena.WebService.HelloWorldRequest();
+            inValue.Body = new appRegistroSena.WebService.HelloWorldRequestBody();
+            appRegistroSena.WebService.HelloWorldResponse retVal = ((appRegistroSena.WebService.ServicioSoap)(this)).HelloWorld(inValue);
             return retVal.Body.HelloWorldResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<appRegistroSena.RegistrarServicio.HelloWorldResponse> appRegistroSena.RegistrarServicio.ServicioSoap.HelloWorldAsync(appRegistroSena.RegistrarServicio.HelloWorldRequest request) {
+        System.Threading.Tasks.Task<appRegistroSena.WebService.HelloWorldResponse> appRegistroSena.WebService.ServicioSoap.HelloWorldAsync(appRegistroSena.WebService.HelloWorldRequest request) {
             return base.Channel.HelloWorldAsync(request);
         }
         
-        public System.Threading.Tasks.Task<appRegistroSena.RegistrarServicio.HelloWorldResponse> HelloWorldAsync() {
-            appRegistroSena.RegistrarServicio.HelloWorldRequest inValue = new appRegistroSena.RegistrarServicio.HelloWorldRequest();
-            inValue.Body = new appRegistroSena.RegistrarServicio.HelloWorldRequestBody();
-            return ((appRegistroSena.RegistrarServicio.ServicioSoap)(this)).HelloWorldAsync(inValue);
+        public System.Threading.Tasks.Task<appRegistroSena.WebService.HelloWorldResponse> HelloWorldAsync() {
+            appRegistroSena.WebService.HelloWorldRequest inValue = new appRegistroSena.WebService.HelloWorldRequest();
+            inValue.Body = new appRegistroSena.WebService.HelloWorldRequestBody();
+            return ((appRegistroSena.WebService.ServicioSoap)(this)).HelloWorldAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        appRegistroSena.RegistrarServicio.mtdRegistrarResponse appRegistroSena.RegistrarServicio.ServicioSoap.mtdRegistrar(appRegistroSena.RegistrarServicio.mtdRegistrarRequest request) {
+        appRegistroSena.WebService.mtdRegistrarResponse appRegistroSena.WebService.ServicioSoap.mtdRegistrar(appRegistroSena.WebService.mtdRegistrarRequest request) {
             return base.Channel.mtdRegistrar(request);
         }
         
         public string mtdRegistrar(string tipoVehiculo, string placa, string color, string marca) {
-            appRegistroSena.RegistrarServicio.mtdRegistrarRequest inValue = new appRegistroSena.RegistrarServicio.mtdRegistrarRequest();
-            inValue.Body = new appRegistroSena.RegistrarServicio.mtdRegistrarRequestBody();
+            appRegistroSena.WebService.mtdRegistrarRequest inValue = new appRegistroSena.WebService.mtdRegistrarRequest();
+            inValue.Body = new appRegistroSena.WebService.mtdRegistrarRequestBody();
             inValue.Body.tipoVehiculo = tipoVehiculo;
             inValue.Body.placa = placa;
             inValue.Body.color = color;
             inValue.Body.marca = marca;
-            appRegistroSena.RegistrarServicio.mtdRegistrarResponse retVal = ((appRegistroSena.RegistrarServicio.ServicioSoap)(this)).mtdRegistrar(inValue);
+            appRegistroSena.WebService.mtdRegistrarResponse retVal = ((appRegistroSena.WebService.ServicioSoap)(this)).mtdRegistrar(inValue);
             return retVal.Body.mtdRegistrarResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<appRegistroSena.RegistrarServicio.mtdRegistrarResponse> appRegistroSena.RegistrarServicio.ServicioSoap.mtdRegistrarAsync(appRegistroSena.RegistrarServicio.mtdRegistrarRequest request) {
+        System.Threading.Tasks.Task<appRegistroSena.WebService.mtdRegistrarResponse> appRegistroSena.WebService.ServicioSoap.mtdRegistrarAsync(appRegistroSena.WebService.mtdRegistrarRequest request) {
             return base.Channel.mtdRegistrarAsync(request);
         }
         
-        public System.Threading.Tasks.Task<appRegistroSena.RegistrarServicio.mtdRegistrarResponse> mtdRegistrarAsync(string tipoVehiculo, string placa, string color, string marca) {
-            appRegistroSena.RegistrarServicio.mtdRegistrarRequest inValue = new appRegistroSena.RegistrarServicio.mtdRegistrarRequest();
-            inValue.Body = new appRegistroSena.RegistrarServicio.mtdRegistrarRequestBody();
+        public System.Threading.Tasks.Task<appRegistroSena.WebService.mtdRegistrarResponse> mtdRegistrarAsync(string tipoVehiculo, string placa, string color, string marca) {
+            appRegistroSena.WebService.mtdRegistrarRequest inValue = new appRegistroSena.WebService.mtdRegistrarRequest();
+            inValue.Body = new appRegistroSena.WebService.mtdRegistrarRequestBody();
             inValue.Body.tipoVehiculo = tipoVehiculo;
             inValue.Body.placa = placa;
             inValue.Body.color = color;
             inValue.Body.marca = marca;
-            return ((appRegistroSena.RegistrarServicio.ServicioSoap)(this)).mtdRegistrarAsync(inValue);
+            return ((appRegistroSena.WebService.ServicioSoap)(this)).mtdRegistrarAsync(inValue);
         }
     }
 }

@@ -54,7 +54,9 @@ namespace appRegistroSena.Vista
             objDatos1.placa = txtPlaca.Text;
             objDatos1.color = txtColor.Text;
             objDatos1.marca = txtMarca.Text;
-            RegistrarServicio.ServicioSoapClient servicio = new RegistrarServicio.ServicioSoapClient();
+            WebService.ServicioSoapClient servicio = new WebService.ServicioSoapClient();
+
+            //RegistrarServicio.ServicioSoapClient servicio = new RegistrarServicio.ServicioSoapClient();
             servicio.mtdRegistrar(objDatos1.tipoVehiculo, objDatos1.placa, objDatos1.color, objDatos1.marca);
 
             ClRegistroE objDatos = new ClRegistroE();

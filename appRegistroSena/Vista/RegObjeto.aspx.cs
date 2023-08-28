@@ -114,7 +114,7 @@ namespace appRegistroSena.Vista
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('Registrado Exitososamente! ', 'Su usuario ha Sido Registrado', 'success')", true);
             }
 
-            RegistrarServicio.ServicioSoapClient servicio = new RegistrarServicio.ServicioSoapClient();
+            //RegistrarServicio.ServicioSoapClient servicio = new RegistrarServicio.ServicioSoapClient();
             
 
         }
