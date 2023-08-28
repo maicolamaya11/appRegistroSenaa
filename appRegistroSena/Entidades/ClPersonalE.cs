@@ -11,6 +11,8 @@ namespace appRegistroSena.Entidades
         public string nombres { get; set; }
         public string apellidos { get; set; }
         public string documento { get; set; }
+        public string rol { get; set; }
+        public string programa { get; set; }
         public int idPrograma { get; set; }
     }
 }

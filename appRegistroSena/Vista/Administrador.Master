@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hoverable Sidebar Menu HTML CSS & JavaScript</title>
+    <title>Administrador</title>
     <link href="css/Estilos_MasterAdmon.css" rel="stylesheet" />
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
@@ -35,7 +35,7 @@
                                 <span class="line"></span>
                             </div>
                             <li class="item">
-                                <a href="ListaRegistrosRealizados.aspx" class="link flex">
+                                <a href="" class="link flex">
                                     <i class="bx bx-home-alt"></i>
                                     <span>Registros Realizados</span>
                                 </a>
@@ -60,10 +60,19 @@
                             </li>
                            <%-- <li class="item">
                                 <a href="#" class="link flex">
+
+                                <a href="" class="link flex">
                                     <i class="bx bx-grid-alt"></i>
-                                    <span>All Projects</span>
+                                    <span>listado Instructores</span>
                                 </a>
-                            </li>--%>
+                            </li>
+                              <li class="item">
+                                <a href="ListarAprendices.aspx" class="link flex">
+
+                                    <i class="bx bx-grid-alt"></i>
+                                    <span>listado Aprendices</span>
+                                </a>
+                            </li>
                         </ul>
 
                         <ul class="menu_item">
@@ -84,14 +93,14 @@
                                 </a>
                             </li>
                             <li class="item">
-                                <a href="#" class="link flex">
+                                <a href="RegistrarPersonal.aspx" class="link flex">
                                     <i class="bx bx-folder"></i>
                                     <span>Registrar Personal</span>
                                 </a>
                             </li>
                         </ul>
 
-                       <%-- <ul class="menu_item">
+                        <%-- <ul class="menu_item">
                             <div class="menu_title flex">
                                 <span class="title">Setting</span>
                                 <span class="line"></span>
@@ -123,6 +132,8 @@
         </div>
 
     </form>
-        <script src="JavaScript/DataTable.js"></script>
+    <script src="JavaScript/DataTable.js"></script>
+    
+
 </body>
 </html>

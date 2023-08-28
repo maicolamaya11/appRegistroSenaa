@@ -12,6 +12,11 @@
     <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
     <link href="css/Input.css" rel="stylesheet" />
 
+
+    <script src="JavaScript/sweetalert-dev.js"></script>
+    <link href="css/sweetalert.css" rel="stylesheet" />
+    <script src="JavaScript/sweetalert.min.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="form1" runat="server">
@@ -29,6 +34,9 @@
                             <th>Porteria</th>
                             <th>Hora Ingreso</th>
                             <th>Fecha Ingreso</th>
+
+                            <th>Documento Usuario</th>
+
                             <th>Opc</th>
                         </tr>
                     </thead>
@@ -39,7 +47,20 @@
     </div>
 
 
+
     <asp:TextBox ID="txtDato" runat="server" Style="color: #031529; background: #031529; border: none;"></asp:TextBox>
+
+                    <div class="modal-body">
+                        <asp:TextBox ID="txtCodigo" runat="server" placeholder="Código" class="form-control mb-3 txt-codigo-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtEstado" runat="server" placeholder="Estado" class="form-control mb-3 txt-estado-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaIngreso" runat="server" placeholder="Fecha Ingreso" class="form-control mb-3 txt-fechaIngreso-registro h-100"></asp:TextBox>
+                        <asp:TextBox ID="txtHoraIngreso" runat="server" placeholder="Hora Ingreso" class="form-control mb-3 txt-horaIngreso-registro h-100"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaSalida" runat="server" placeHolder="Fecha Salida" class="form-control mb-3 txt-fechaSalida-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtHoraSalida" runat="server" placeHolder="Hora Salida" class="form-control mb-3 txt-horaSalida-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtDocumentoPerson" runat="server" placeHolder="Documento Personal" class="form-control mb-3 txt-documentoP-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtNombrePort" runat="server" placeHolder="Nombre Portero" class="form-control mb-3 txt-nombrePort-registro"></asp:TextBox>
+                        <asp:TextBox ID="txtDocumentoUsua" runat="server" placeHolder="Documento Usuario" class="form-control mb-3 txt-documentoU-registro"></asp:TextBox>
+
 
     <div class="modal fade" id="staticBackdrop" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

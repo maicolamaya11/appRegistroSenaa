@@ -31,6 +31,35 @@ namespace appRegistroSena.Vista
             ClRegistroL objPersonalL = new ClRegistroL();
             List<ClSalidaE> listaPersonal = objPersonalL.mtdListarRegistros();
 
+        public static List<ClRegistroE> mtdCargarDatos(int idRegistro)
+        {
+            ClRegistroL objRegistro = new ClRegistroL();
+            List<ClRegistroE> Registro = objRegistro.mtdRegistroCodigo(idRegistro);
+            if (Registro.Count > 0)
+            {
+                return Registro;
+            }
+            return null;
+        }
+
+        [WebMethod]
+        public static string mtdActualizarPersonal(object data)
+        {
+            ClRegistroL objPersonalL = new ClRegistroL();
+            ClRegistroE objActualizarPersonal = new ClRegistroE();
+
+            var datos = data as IDictionary<string, object>;
+
+            objActualizarPersonal.codigo = datos["codigo"].ToString();
+            objActualizarPersonal.estado = datos["estado"].ToString();
+            objActualizarPersonal.fechaIngreso = datos["fechaIngreso"].ToString();
+            objActualizarPersonal.horaIngreso = datos["horaIngreso"].ToString();
+            objActualizarPersonal.fechaSalida = datos["fechaSalida"].ToString();
+            objActualizarPersonal.horaSalida = datos["horaSalida"].ToString();
+            objActualizarPersonal.documentoPerson = datos["documentoPerson"].ToString();
+            objActualizarPersonal.nombrePort = datos["nombrePort"].ToString();
+
+
             return listaPersonal;
         }
         [WebMethod]
@@ -51,6 +80,10 @@ namespace appRegistroSena.Vista
             objDatos.observacion = txtObservacion.Text;
 
             int registro = objSalidaL.mtdIngresarSalida(objDatos);
+
+            var data = formData as IDictionary<string, object>;
+            objEliminarPersonal.idRegistro = int.Parse(data["idRegistro"].ToString());
+
 
             ClRegistroL objPersonalL = new ClRegistroL();
             ClSalidaE objActualizarPersonal = new ClSalidaE();

@@ -24,6 +24,16 @@ namespace appRegistroSena.Logica
         }
 
         public int mtdActualizacion(int id )
+
+        public List<ClRegistroE> mtdRegistroCodigo(int idRegistro)
+        {
+            ClRegistroD objRegistroD = new ClRegistroD();
+            List<ClRegistroE> listaTable = objRegistroD.mtdObtenerRegistrosCod(idRegistro);
+            return listaTable;
+        }
+
+        public int mtdActualizacion(ClRegistroE objDatos)
+
         {
             ClRegistroD objPersonalD = new ClRegistroD();
             int actu = objPersonalD.mtdActualizar(id);

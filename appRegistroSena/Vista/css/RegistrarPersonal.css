@@ -17,34 +17,34 @@ body {
 }
 
 .registration-image {
-    flex: 1;
+    flex: 5;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
     overflow: hidden;
 }
 
     .registration-image img {
         max-width: 100%;
+        width: 605px;
     }
 
 .registration-form {
-    flex: 1.5;
+    flex: 5;
     background: url('ruta-a-tu-imagen-de-fondo.jpg') no-repeat center;
     background-size: cover;
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     padding: 40px;
-    color: #fff;
-    height: 500px;
+    color: rgb(0, 0, 0);
+    height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
     .registration-form h2 {
-        margin-bottom: 15px;
-        color: #fff;
+        margin-bottom: 30px;
+        color: rgb(0, 0, 0);
     }
 
     .registration-form form {

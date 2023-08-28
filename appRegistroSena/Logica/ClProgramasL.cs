@@ -41,5 +41,13 @@ namespace appRegistroSena.Logica
         }
 
 
+
+        public List<ClProgramasE> mtdLlistarPrograma()
+        {
+            ClProgramasD objProgramaD = new ClProgramasD();
+            List<ClProgramasE> listaPrograma = objProgramaD.mtdListarProgramas();
+            return listaPrograma;
+        }
+
     }
 }
