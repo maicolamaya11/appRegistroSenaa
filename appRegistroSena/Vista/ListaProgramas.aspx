@@ -18,23 +18,18 @@
                 </svg>
             </i>
             <input id="txtBusqueda" runat="server" type="text" placeholder="Buscar..." />
-            <asp:Button ID="btnGuardar" class="button" runat="server" Text="Buscar" Style="width: 30%; height: 81%; right: 4px;" />
+            <asp:Button ID="btnGuardar" class="button" runat="server" Text="Buscar" Style="width: 30%; height: 81%; right: 4px;" OnClick="btnGuardar_Click2"/>
         </div>
     </section>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" style="margin-left: 190px;" runat="server">
         <ContentTemplate>
-            <asp:GridView ID="gvInstructor" runat="server" DataKeyNames="idUsuario" AutoGenerateColumns="False" Style="width: 70%; text-align: center; margin-left: 300px; margin-top: 49px;" CssClass="styled-table">
+            <asp:GridView ID="gvProgramas" runat="server" DataKeyNames="idPrograma" AutoGenerateColumns="False" Style="width: 70%; text-align: center; margin-left: 300px; margin-top: 49px;" CssClass="styled-table">
                 <HeaderStyle CssClass="styled-header" BackColor="#2E7D32" ForeColor="white" />
                 <AlternatingRowStyle CssClass="alternate-row" BackColor="#A5D6A7" />
                 <RowStyle CssClass="normal-row" BackColor="#E8F5E9" />
                 <Columns>
-                    <asp:BoundField DataField="idUsuario" HeaderText="ID de Usuario" Visible="false" />
-                    <asp:BoundField DataField="nombre" HeaderText="Nombres" />
-                    <asp:BoundField DataField="apellido" HeaderText="Apellidos" />
-                    <asp:BoundField DataField="telefono" HeaderText="Teléfono" />
-                    <asp:BoundField DataField="email" HeaderText="Correo Electrónico" />
-                    <asp:BoundField DataField="documento" HeaderText="Documento" />
+                    <asp:BoundField DataField="idPrograma" HeaderText="ID de Usuario" Visible="false" />
                     <asp:BoundField DataField="ficha" HeaderText="Ficha" />
                     <asp:BoundField DataField="programa" HeaderText="Programa" />
                     <asp:BoundField DataField="jornada" HeaderText="Jornada" />
@@ -44,7 +39,7 @@
     </asp:UpdatePanel>
     <br />
     <br />
-    <asp:Button ID="btnImprimir" runat="server" CssClass="btn-imprimir" Text="Imprimir Reporte" Style="margin-left: 800px;"/>
+    <asp:Button ID="btnImprimir" runat="server" CssClass="btn-imprimir" Text="Imprimir Reporte" Style="margin-left: 800px;" OnClick="btnImprimir_Click1"/>
 
 
 

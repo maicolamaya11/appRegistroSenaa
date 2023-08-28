@@ -111,6 +111,27 @@ namespace appRegistroSena.Datos
                 objProgramas.idPrograma = int.Parse(tblPrograma.Rows[i]["idPrograma"].ToString());
                 objProgramas.ficha = tblPrograma.Rows[i]["ficha"].ToString();
                 objProgramas.programa = tblPrograma.Rows[i]["programa"].ToString();
+                objProgramas.jornada = tblPrograma.Rows[i]["jornada"].ToString();
+
+                listaProf.Add(objProgramas);
+            }
+            return listaProf;
+        }
+
+        public List<ClProgramasE> mtdBusarPrograma(string busqueda)
+        {
+            string consulta = "select * from Programa where (programa LIKE '" + busqueda + "' OR ficha LIKE '" + busqueda + "' " +
+                              "OR jornada LIKE '" + busqueda + "')"; 
+            ProcesarSQL SQL = new ProcesarSQL();
+            DataTable tblPrograma = SQL.mtdSelectDesc(consulta);
+
+            List<ClProgramasE> listaProf = new List<ClProgramasE>();
+            for (int i = 0; i < tblPrograma.Rows.Count; i++)
+            {
+                ClProgramasE objProgramas = new ClProgramasE();
+                objProgramas.idPrograma = int.Parse(tblPrograma.Rows[i]["idPrograma"].ToString());
+                objProgramas.ficha = tblPrograma.Rows[i]["ficha"].ToString();
+                objProgramas.programa = tblPrograma.Rows[i]["programa"].ToString();
 
                 listaProf.Add(objProgramas);
             }
@@ -149,7 +170,7 @@ namespace appRegistroSena.Datos
         {
             string Consulta = "SELECT u.idUsuario, U.nombre, U.apellido, U.telefono, U.email, U.documento, P.ficha, " +
                 "P.programa, P.jornada FROM Usuario AS U JOIN Programa AS P ON U.idPrograma = P.idPrograma " +
-                "WHERE (P.programa LIKE '" + busqueda + "' OR P.ficha LIKE '" + busqueda + "' OR U.documento LIKE '" + busqueda + "') AND U.rol = 'Instructor'";
+                "WHERE (P.programa LIKE '" + busqueda + "' OR P.ficha LIKE '" + busqueda + "' OR U.documento LIKE '" + busqueda + "') AND U.rol = 'Aprendiz'";
             ProcesarSQL SQL = new ProcesarSQL();
             DataTable tblInstru = SQL.mtdSelectDesc(Consulta);
 

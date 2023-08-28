@@ -64,7 +64,6 @@ namespace appRegistroSena.Vista
             tabla.Columns.Add("nombres", typeof(string));
             tabla.Columns.Add("apellidos", typeof(string));
             tabla.Columns.Add("documento", typeof(string));
-            tabla.Columns.Add("jornada", typeof(string));
 
             for (int i = 0; i < lista.Count; i++)
             {
@@ -73,9 +72,8 @@ namespace appRegistroSena.Vista
                 tabla.Rows.Add(Personal.idPersonal,
                     Personal.nombres,
                     Personal.apellidos,
-                    Personal.documento,
-                    programas != null ? programas.jornada : string.Empty);
-        }
+                    Personal.documento);
+            }
             return tabla;
         }
 
