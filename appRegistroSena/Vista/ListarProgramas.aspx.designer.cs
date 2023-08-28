@@ -11,7 +11,7 @@ namespace appRegistroSena.Vista
 {
 
 
-    public partial class ListaRegistrosRealizados
+    public partial class ListarProgramas
     {
 
         /// <summary>
@@ -33,40 +33,58 @@ namespace appRegistroSena.Vista
         protected global::System.Web.UI.WebControls.TextBox txtDato;
 
         /// <summary>
-        /// Control lblEstado.
+        /// Control lblPrograma.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEstado;
+        protected global::System.Web.UI.WebControls.Label lblPrograma;
 
         /// <summary>
-        /// Control txtEstado.
+        /// Control txtPrograma.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstado;
+        protected global::System.Web.UI.WebControls.TextBox txtPrograma;
 
         /// <summary>
-        /// Control lblObservacion.
+        /// Control lblFicha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblObservacion;
+        protected global::System.Web.UI.WebControls.Label lblFicha;
 
         /// <summary>
-        /// Control txtObservacion.
+        /// Control txtFicha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtObservacion;
+        protected global::System.Web.UI.WebControls.TextBox txtFicha;
+
+        /// <summary>
+        /// Control lblJornada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblJornada;
+
+        /// <summary>
+        /// Control txtJornada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtJornada;
 
         /// <summary>
         /// Control btnActualizar.
@@ -76,5 +94,14 @@ namespace appRegistroSena.Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnActualizar;
+
+        /// <summary>
+        /// Control btnEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
     }
 }

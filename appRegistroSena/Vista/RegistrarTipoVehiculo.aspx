@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Principal.Master" AutoEventWireup="true" CodeBehind="RegObjeto.aspx.cs" Inherits="appRegistroSena.Vista.RegObjeto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Principal.Master" AutoEventWireup="true" CodeBehind="RegistrarTipoVehiculo.aspx.cs" Inherits="appRegistroSena.Vista.RegistrarTipoVehiculo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/RegistroObjeto.css" rel="stylesheet" />
@@ -14,7 +14,7 @@
     <div class="main">
         <div class="containers a-containers" id="a-containers">
             <div class="form" id="a-form" action="#">
-                <h2 class="form_title title">Registrar Objetos</h2>
+                <h2 class="form_title title">Registrar Vehiculos</h2>
                 <div class="buscar-caja">
                     <asp:TextBox ID="txtBuscar" class="buscar-txt" runat="server" placeholder="Buscar"></asp:TextBox>
                     <asp:Button ID="btnBuscar" class="buscar-btn" runat="server" Text="" OnClick="btnBuscar_Click" /><i class="far fa-search"></i>
@@ -23,11 +23,12 @@
                 <asp:DropDownList ID="ddlPersonal" class="form__input" runat="server"></asp:DropDownList>
                 <asp:TextBox ID="txtNombre" class="form__input" runat="server" placeholder="Nombre" ReadOnly="true"></asp:TextBox>
                 <asp:TextBox ID="txtApellido" class="form__input" runat="server" placeholder="Apellido" ReadOnly="true"></asp:TextBox>
-                <asp:TextBox ID="txtNombreTipo" class="form__input" runat="server" placeholder="Nombre del Objeto"></asp:TextBox>
-                <asp:TextBox ID="txtCantidad" class="form__input" runat="server" placeholder="Cantidad"></asp:TextBox>
-                <asp:TextBox ID="txtObservaciones" class="form__input" runat="server" placeholder="Observaciones" style="height:100px;" TextMode="MultiLine"></asp:TextBox>
+                <asp:DropDownList ID="ddlTipoVehiculo" class="form__input" runat="server"></asp:DropDownList>
+                <asp:TextBox ID="txtPlaca" class="form__input" runat="server" placeholder="Placa"></asp:TextBox>
+                <asp:TextBox ID="txtColor" class="form__input" runat="server" placeholder="Color"></asp:TextBox>
+                <asp:TextBox ID="txtMarca" class="form__input" runat="server" placeholder="Marca"></asp:TextBox>
 
-                <asp:Button ID="btnRegistrar" class="switch__button button submit" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" />
+                <asp:Button ID="btnRegistrar" class="switch__button button submit" runat="server" Text="Registrar" OnClick="btnRegistrar_Click"/>
             </div>
         </div>
         <div class="containers b-containers" id="b-containers">
@@ -42,5 +43,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var dropdown = document.getElementById('<%= ddlTipoVehiculo.ClientID %>');
+                var textbox = document.getElementById('<%= txtPlaca.ClientID %>');
+
+                dropdown.addEventListener("change", function () {
+                    var selectedValue = dropdown.value;
+
+                    if (selectedValue === "Bicicleta") {
+                        textbox.style.display = "none"; // Muestra el TextBox
+                    } else {
+                        textbox.style.display = "block"; // Oculta el TextBox
+                    }
+                });
+            });
+    </script>
 
 </asp:Content>

@@ -47,6 +47,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -70,12 +73,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Connected Services\RegistrarServicio\appRegistroSena.RegistrarServicio.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\RegistrarServicio\appRegistroSena.RegistrarServicio.mtdRegistrarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\RegistrarServicio\Servicio.disco" />
+    <None Include="Connected Services\RegistrarServicio\configuration91.svcinfo" />
+    <None Include="Connected Services\RegistrarServicio\configuration.svcinfo" />
+    <None Include="Connected Services\RegistrarServicio\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Vista\Boostrap\Boostrap.css" />
     <Content Include="Vista\css\Carrusel.css" />
     <Content Include="Vista\css\Estilos_DataTables.css" />
     <Content Include="Vista\css\Estilos_MasterAdmon.css" />
     <Content Include="Vista\css\Estilos_RegistrarPrograma.css" />
     <Content Include="Vista\css\Index.css" />
+    <Content Include="Vista\css\Input.css" />
     <Content Include="Vista\css\Login.css" />
     <Content Include="Vista\css\RegistrarPersonal.css" />
     <Content Include="Vista\Imagenes\centro.jpg" />
@@ -91,9 +108,12 @@
     <Content Include="Vista\JavaScript\datatables.js" />
     <Content Include="Vista\JavaScript\jquery-3.6.0.js" />
     <Content Include="Vista\ListaRegistrosRealizados.aspx" />
+    <Content Include="Vista\ListarProgramas.aspx" />
+    <Content Include="Vista\ListarProgramasCoor.aspx" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\PrincipalAdministrador.aspx" />
     <Content Include="Vista\RegistrarPersonal.aspx" />
+    <Content Include="Vista\RegistrarTipoVehiculo.aspx" />
     <Content Include="Vista\RegistrarUsuarios.aspx" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert-dev.js" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert.min.js" />
@@ -117,13 +137,24 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\RegistrarServicio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Datos\ClProgramasD.cs" />
     <Compile Include="Datos\ClConexion.cs" />
+    <Compile Include="Datos\ClSalidaD.cs" />
     <Compile Include="Datos\ClUsuarioD.cs" />
     <Compile Include="Datos\ProcesarSQL.cs" />
     <Compile Include="Entidades\ClProgramasE.cs" />
+    <Compile Include="Entidades\ClSalida1E.cs" />
+    <Compile Include="Entidades\ClSalidaE.cs" />
+    <Compile Include="Entidades\ClTipoObjetoE.cs" />
+    <Compile Include="Entidades\ClTipoVehiculoE.cs" />
     <Compile Include="Entidades\ClUsuarioE.cs" />
     <Compile Include="Logica\ClProgramasL.cs" />
+    <Compile Include="Logica\ClSalidaL.cs" />
     <Compile Include="Logica\ClUsuarioL.cs" />
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClPorteriaD.cs" />
@@ -142,6 +173,13 @@
     <Compile Include="Vista\Administrador.Master.designer.cs">
       <DependentUpon>Administrador.Master</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Coordinador.Master.cs">
+      <DependentUpon>Coordinador.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Coordinador.Master.designer.cs">
+      <DependentUpon>Coordinador.Master</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,6 +193,20 @@
     </Compile>
     <Compile Include="Vista\ListaRegistrosRealizados.aspx.designer.cs">
       <DependentUpon>ListaRegistrosRealizados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ListarProgramas.aspx.cs">
+      <DependentUpon>ListarProgramas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListarProgramas.aspx.designer.cs">
+      <DependentUpon>ListarProgramas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ListarProgramasCoor.aspx.cs">
+      <DependentUpon>ListarProgramasCoor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListarProgramasCoor.aspx.designer.cs">
+      <DependentUpon>ListarProgramasCoor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -212,6 +264,13 @@
     <Compile Include="Vista\RegistrarPrograma.aspx.designer.cs">
       <DependentUpon>RegistrarPrograma.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\RegistrarTipoVehiculo.aspx.cs">
+      <DependentUpon>RegistrarTipoVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegistrarTipoVehiculo.aspx.designer.cs">
+      <DependentUpon>RegistrarTipoVehiculo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\RegistrarUsuarios.aspx.cs">
       <DependentUpon>RegistrarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,6 +294,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\RegistrarServicio\Servicio.wsdl" />
     <None Include="packages.config" />
     <Content Include="Vista\Principal.Master" />
     <Content Include="Vista\Administrador.Master" />
@@ -242,6 +302,7 @@
     <Content Include="Views\Sweet\Alert.cshtml" />
     <Content Include="Vista\css\bootstrap.min.css" />
     <Content Include="Vista\NavbarIndex.Master" />
+    <Content Include="Vista\Coordinador.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -249,7 +310,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\RegistrarServicio\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

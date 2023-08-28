@@ -13,72 +13,55 @@ namespace appRegistroSena.Vista
 {
     public partial class ListaRegistrosRealizados : System.Web.UI.Page
     {
+        ClRegistroL objProgramasL = new ClRegistroL();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 ClRegistroL objPersonalL = new ClRegistroL();
-                List<ClRegistroE> listaPersonal = objPersonalL.mtdListarRegistros();
+                List<ClSalidaE> listaPersonal = objPersonalL.mtdListarRegistros();
                 string Json = JsonConvert.SerializeObject(listaPersonal, Newtonsoft.Json.Formatting.Indented);
                 ClientScript.RegisterStartupScript(GetType(), "JsonScript", $"var jsonData = {Json};", true);
             }
         }
 
         [WebMethod]
-        public static List<ClRegistroE> mtdCargarDatos(int Codigo)
-        {
-            ClRegistroL objRegistro = new ClRegistroL();
-            List<ClRegistroE> Registro = objRegistro.mtdListarRegistros();
-            if (Registro.Count > 0)
-            {
-                return Registro;
-            }
-            return null;
-        }
-
-        [WebMethod]
-        public static string mtdActualizarPersonal(object data)
+        public static List<ClSalidaE> mtdListar()
         {
             ClRegistroL objPersonalL = new ClRegistroL();
-            ClRegistroE objActualizarPersonal = new ClRegistroE();
-
-            var datos = data as IDictionary<string, object>;
-
-            objActualizarPersonal.codigo = datos["codigo"].ToString();
-            objActualizarPersonal.estado = datos["estado"].ToString();
-            objActualizarPersonal.fechaIngreso = datos["fechaIngreso"].ToString();
-            objActualizarPersonal.horaIngreso = datos["horaIngreso"].ToString();
-            objActualizarPersonal.fechaSalida = datos["fechaSalida"].ToString();
-            objActualizarPersonal.horaSalida = datos["horaSalida"].ToString();
-            objActualizarPersonal.documentoPerson = datos["documento"].ToString();
-            objActualizarPersonal.nombrePort = datos["nombrePorteria"].ToString();
-            objActualizarPersonal.documentoUsua = datos["documento"].ToString();
-
-            int resultado = objPersonalL.mtdActualizacion(objActualizarPersonal);
-
-            return "success"; // Devuelve una respuesta al cliente
-        }
-
-        [WebMethod]
-        public static List<ClRegistroE> mtdListar()
-        {
-            ClRegistroL objPersonalL = new ClRegistroL();
-            List<ClRegistroE> listaPersonal = objPersonalL.mtdListarRegistros();
+            List<ClSalidaE> listaPersonal = objPersonalL.mtdListarRegistros();
 
             return listaPersonal;
         }
-
         [WebMethod]
-        public static string mtdEliminar(object formData)
+        public static int cargardatos(int idRegistro)
         {
-            ClRegistroL objPersonal = new ClRegistroL();
-            ClRegistroE objEliminarPersonal = new ClRegistroE();
 
-            var data = formData as IDictionary<string, object>;
-            objEliminarPersonal.codigo = data["codigo"].ToString();
+            var Page = HttpContext.Current.Handler as ListaRegistrosRealizados;
+            int id = Page.objProgramasL.mtdActualizacion(idRegistro);
+            return id;
+        }
 
-            int resultado = objPersonal.mtdEliminar(objEliminarPersonal);
-            return string.Empty;
+        protected void btnActualizar_Click(object sender, EventArgs e)
+        {
+            ClSalidaL objSalidaL = new ClSalidaL();
+            ClSalida1E objDatos = new ClSalida1E();
+
+            objDatos.estado = txtEstado.Text;
+            objDatos.observacion = txtObservacion.Text;
+
+            int registro = objSalidaL.mtdIngresarSalida(objDatos);
+
+            ClRegistroL objPersonalL = new ClRegistroL();
+            ClSalidaE objActualizarPersonal = new ClSalidaE();
+
+            int idRegistro = int.Parse(txtDato.Text);
+            int resultado = objPersonalL.mtdActualizacion(idRegistro);
+
+            if (resultado >= 1)
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Actualizar Salida!', 'Se ha Actualizado la Salida " + objActualizarPersonal.codigo + "', 'success')", true);
+            }
         }
     }
 }

@@ -8,7 +8,9 @@
     <script src="JavaScript/datatables.js"></script>
     <script src="JavaScript/bootstrap.bundle.js"></script>
     <script src="JavaScript/bootstrap.min.js"></script>
-
+    <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
+    <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
+    <link href="css/Input.css" rel="stylesheet" />
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -19,46 +21,97 @@
                     <thead>
                         <tr>
                             <th>Codigo</th>
-                            <th>Estado</th>
-                            <th>Fecha Ingreso</th>
-                            <th>Hora Ingreso</th>
-                            <th>Fecha Salida</th>
-                            <th>Hora Salida</th>
-                            <th>Documento Vigilante</th>
+                            <th>Documento</th>
+                            <th>Nombre Personal</th>
+                            <th>Tipo Vehiculo</th>
+                            <th>Nombre Objeto</th>
+                            <th>Nombre Guarda</th>
                             <th>Porteria</th>
-                            <th>Documento Usuario</th>
-                            <th>Documento Usuario</th>
+                            <th>Hora Ingreso</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Opc</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
                 </table>
             </div>
         </div>
+    </div>
 
-        <div class="modal fade venmodal" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editarModalLabel">Editar Registro</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
 
-                    <div class="modal-body">
-                        <asp:TextBox ID="txtCodigo" runat="server" placeholder="Código" class="form-control mb-3 txt-documento-personal"></asp:TextBox>
-                        <asp:TextBox ID="txtHoraIngreso" runat="server" placeholder="Hora Ingreso" class="form-control mb-3 txt-nombre-personal h-100"></asp:TextBox>
-                        <asp:TextBox ID="txtHoraSalida" runat="server" placeHolder="Hora Salida" class="form-control mb-3 txt-apellido-personal"></asp:TextBox>
-                        <asp:TextBox ID="txtDocumentoPerson" runat="server" placeHolder="Documento Personal" class="form-control mb-3 txt-ciudad-personal"></asp:TextBox>
-                        <asp:TextBox ID="txtNombrePort" runat="server" placeHolder="Nombre Portero" class="form-control mb-3 txt-telefono-personal"></asp:TextBox>
-                        <asp:TextBox ID="txtDocumentoUsua" runat="server" placeHolder="Documento Usuario" class="form-control mb-3 txt-telefono-personal"></asp:TextBox>
+    <asp:TextBox ID="txtDato" runat="server" Style="color: #031529; background: #031529; border: none;"></asp:TextBox>
 
-                    </div>
+    <div class="modal fade" id="staticBackdrop" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                     <asp:Label ID="lblEstado" CssClass="form__input" runat="server" Text="Estado: "></asp:Label>
+                        <asp:TextBox ID="txtEstado" CssClass="form__input" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblObservacion" CssClass="form__input" runat="server" Text="Observaciones: "></asp:Label>
+                        <asp:TextBox ID="txtObservacion" CssClass="form__input" runat="server" TextMode="MultiLine" style="height:100px;"></asp:TextBox>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="btnActualizar" class="btn btn-primary" runat="server" Text="Dar Salida" OnClick="btnActualizar_Click" />
 
-                    <div class="modal-footer">
-                        <%--<asp:Button id="btnActualizar" class="btn btn-primary" runat="server" Text="Actualizar" />--%>
-                        <button id="btnActualizar" class="btn btn-primary" type="button">Actualizar</button>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            table = $('#DataTableRegistros').DataTable({
+                data: jsonData,
+                columns: [
+                    { data: 'codigo' },
+                    { data: 'documento' },
+                    { data: 'NombrePersonal' },
+                    { data: 'tipoVehiculo' },
+                    { data: 'nombre' },
+                    { data: 'NombreUsuario' },
+                    { data: 'nombrePorteria' },
+                    { data: 'horaIngreso' },
+                    { data: 'fechaIngreso' },
+                    {
+                        "data": null,
+                        render: function (data, type, row) {
+                            return '<button type="button" id="btncargar" class="btn btn-update btn-primary" data-id="' + data.idRegistro + '" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Salida </button > ';
+                        }
+                    },
+
+                ]
+
+
+            })
+            $('#DataTableRegistros').on('click', '#btncargar', function () {
+                id = $(this).data('id');
+                document.getElementById('<%= txtDato.ClientID %>').value = id;
+                cargardatos(id);
+            })
+
+        })
+        function cargardatos(idRegistro) {
+            $.ajax({
+                type: "POST",
+                url: "ListaRegistrosRealizados.aspx/cargardatos",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ idRegistro: idRegistro }),
+                success: function (dat) {
+                    var Carga = dat.d;
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJAX
+                    console.error('No entra');
+                }
+            });
+        }
+
+    </script>
+
 </asp:Content>

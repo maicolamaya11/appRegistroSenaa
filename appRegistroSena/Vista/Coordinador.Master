@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Coordinador.master.cs" Inherits="appRegistroSena.Vista.Coordinador" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/Estilos_MasterAdmon.css" rel="stylesheet" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <script src="JavaScript/Js._MasterAdmon.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div>
+
+                <nav class="sidebar locked">
+                    <div class="logo_items flex">
+                        <span class="nav_image">
+                            <img src="Imagenes/Logo.png" alt="logo_img" />
+                        </span>
+
+                        <i class="bx bx-x" id="sidebar-close"></i>
+                    </div>
+
+                    <div class="menu_container">
+                        <div class="menu_items">
+                            <ul class="menu_item">
+                                <div class="menu_title flex">
+                                    <span class="title">Informes</span>
+                                    <span class="line"></span>
+                                </div>
+                                <li class="item">
+                                    <a href="ListarProgramasCoor.aspx" class="link flex">
+                                        <i class="bx bx-home-alt"></i>
+                                        <span>Informes Programas</span>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="ListarProgramas.aspx" class="link flex">
+                                        <i class="bx bx-home-alt"></i>
+                                        <span>Informes Usuarios</span>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="ListarProgramas.aspx" class="link flex">
+                                        <i class="bx bx-home-alt"></i>
+                                        <span>Informes Personal</span>
+                                    </a>
+                                </li>
+                                <%-- <li class="item">
+                                <a href="#" class="link flex">
+                                    <i class="bx bx-grid-alt"></i>
+                                    <span>All Projects</span>
+                                </a>
+                            </li>--%>
+                            </ul>
+
+                            <ul class="menu_item">
+                                <div class="menu_title flex">
+                                    <span class="title">Registrar</span>
+                                    <span class="line"></span>
+                                </div>
+                                <li class="item">
+                                    <a href="RegistrarPrograma.aspx" class="link flex">
+                                        <i class="bx bxs-magic-wand"></i>
+                                        <span>Registrar Programa</span>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="RegistrarUsuarios.aspx" class="link flex">
+                                        <i class="bx bx-folder"></i>
+                                        <span>Registrar Usuarios</span>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="#" class="link flex">
+                                        <i class="bx bx-folder"></i>
+                                        <span>Registrar Personal</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <%-- <ul class="menu_item">
+                            <div class="menu_title flex">
+                                <span class="title">Setting</span>
+                                <span class="line"></span>
+                            </div>
+                            <li class="item">
+                                <a href="#" class="link flex">
+                                    <i class="bx bx-flag"></i>
+                                    <span>Notice Board</span>
+                                </a>
+                            </li>
+                            <li class="item">
+                                <a href="#" class="link flex">
+                                    <i class="bx bx-award"></i>
+                                    <span>Award</span>
+                                </a>
+                            </li>
+                            <li class="item">
+                                <a href="#" class="link flex">
+                                    <i class="bx bx-cog"></i>
+                                    <span>Setting</span>
+                                </a>
+                            </li>
+                        </ul>--%>
+                        </div>
+                    </div>
+                </nav>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+    </form>
+</body>
+</html>

@@ -15,6 +15,7 @@ namespace appRegistroSena.Entidades
         public string fechaSalida { get; set; }
         public string horaSalida { get; set; }
         public int idPersonal { get; set; }
+        public int idSalida { get; set; }
         public string documentoPerson { get; set; }
         public int idPorteria { get; set; }
         public string nombrePort { get; set; }

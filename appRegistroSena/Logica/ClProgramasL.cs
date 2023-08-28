@@ -15,5 +15,31 @@ namespace appRegistroSena.Logica
             int registrar = objProgramaD.mtdRegistroPrograma(objDatos);
             return registrar;
         }
+        public List<ClProgramasE> mtdListarPrograma()
+        {
+            ClProgramasD objDatosD = new ClProgramasD();
+            List<ClProgramasE> listaPrograma = objDatosD.mtdListarProgramas();
+            return listaPrograma;
+        }
+        public List<ClProgramasE> mtdIdPersonal(int idPrograma)
+        {
+            ClProgramasD objProgramasD = new ClProgramasD();
+            List<ClProgramasE> listaTable = objProgramasD.mtdObtenerProgramasPorId(idPrograma);
+            return listaTable;
+        }
+        public int mtdActualizar(ClProgramasE objDatos)
+        {
+            ClProgramasD objDatosD = new ClProgramasD();
+            int regsitro = objDatosD.mtdActualizar(objDatos);
+            return regsitro;
+        }
+        public int mtdEliminar(int idPrograma)
+        {
+            ClProgramasD objDatosD = new ClProgramasD();
+            int Eliminar = objDatosD.mtdEliminar(idPrograma);
+            return Eliminar;
+        }
+
+
     }
 }

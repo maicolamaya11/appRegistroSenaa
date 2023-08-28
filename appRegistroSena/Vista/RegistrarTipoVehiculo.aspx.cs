@@ -1,20 +1,15 @@
 ﻿using appRegistroSena.Entidades;
 using appRegistroSena.Logica;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Xml.Linq;
 
 namespace appRegistroSena.Vista
 {
-    public partial class RegObjeto : System.Web.UI.Page
+    public partial class RegistrarTipoVehiculo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,14 +24,14 @@ namespace appRegistroSena.Vista
                 ddlPorteria.DataBind();
 
 
-               
+                ddlTipoVehiculo.Items.Add(new ListItem("Carro", "Carro"));
+                ddlTipoVehiculo.Items.Add(new ListItem("Bicicleta", "Bicicleta"));
+                ddlTipoVehiculo.Items.Add(new ListItem("Moto", "Moto"));
             }
-
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-
             string documento = txtBuscar.Text;
             ClPersonalL objPersonalL = new ClPersonalL();
             List<ClPersonalE> listaPersonal = objPersonalL.mtdBuscar(documento);
@@ -50,54 +45,21 @@ namespace appRegistroSena.Vista
 
             txtNombre.Text = listaPersonal[0].nombres;
             txtApellido.Text = listaPersonal[0].apellidos;
-
-
         }
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            ClTipoObjetoE objDatos1 = new ClTipoObjetoE();
-            objDatos1.nombre = txtNombreTipo.Text;
-            objDatos1.cantidad = int.Parse(txtCantidad.Text);
-            objDatos1.observaciones = txtObservaciones.Text;
-
-            try
-            {
-                // TODO: Add insert logic here
-                using (HttpClient httpClient = new HttpClient())
-                {
-                    httpClient.BaseAddress = new Uri("https://localhost:44338/api/TipoObjeto");
-                    httpClient.DefaultRequestHeaders.Accept.Clear();
-                    httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                    string jsonProducto = JsonConvert.SerializeObject(objDatos1);
-                    var content = new StringContent(jsonProducto, Encoding.UTF8, "application/json");
-
-                    HttpResponseMessage response = httpClient.PostAsync("https://localhost:44338/api/TipoObjeto", content).Result;
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('Registrado Exitososamente! ', 'Su usuario ha Sido Registrado', 'success')", true);
-                    }
-                    else
-                    {
-                        ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('Usuario No Registrado! ', 'Su usuario no ha Sido Registrado Con Exito', 'warning')", true);
-
-                    }
-                }
-
-            }
-            catch
-            {
-
-            }
-
+            ClTipoVehiculoE objDatos1 = new ClTipoVehiculoE();
+            objDatos1.tipoVehiculo = ddlTipoVehiculo.SelectedValue.ToString();
+            objDatos1.placa = txtPlaca.Text;
+            objDatos1.color = txtColor.Text;
+            objDatos1.marca = txtMarca.Text;
+            RegistrarServicio.ServicioSoapClient servicio = new RegistrarServicio.ServicioSoapClient();
+            servicio.mtdRegistrar(objDatos1.tipoVehiculo, objDatos1.placa, objDatos1.color, objDatos1.marca);
 
             ClRegistroE objDatos = new ClRegistroE();
 
-
             objDatos.estado = "Pendiente";
-            //objDatos.idSalida = 0;
             objDatos.idPersonal = int.Parse(ddlPersonal.SelectedValue.ToString());
             objDatos.idPorteria = int.Parse(ddlPorteria.SelectedValue.ToString());
             objDatos.idUsuario = 1;
@@ -114,8 +76,8 @@ namespace appRegistroSena.Vista
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('Registrado Exitososamente! ', 'Su usuario ha Sido Registrado', 'success')", true);
             }
 
-            RegistrarServicio.ServicioSoapClient servicio = new RegistrarServicio.ServicioSoapClient();
-            
+
+
 
         }
     }

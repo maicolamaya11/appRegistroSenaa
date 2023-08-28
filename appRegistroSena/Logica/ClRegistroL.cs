@@ -16,17 +16,17 @@ namespace appRegistroSena.Logica
             return registro;
         }
 
-        public List<ClRegistroE> mtdListarRegistros()
+        public List<ClSalidaE> mtdListarRegistros()
         {
             ClRegistroD objRegistroD = new ClRegistroD();
-            List<ClRegistroE> listaTable = objRegistroD.mtdListarRegistros();
+            List<ClSalidaE> listaTable = objRegistroD.mtdListarRegistros();
             return listaTable;
         }
 
-        public int mtdActualizacion(ClRegistroE objDatos)
+        public int mtdActualizacion(int id )
         {
             ClRegistroD objPersonalD = new ClRegistroD();
-            int actu = objPersonalD.mtdActualizar(objDatos);
+            int actu = objPersonalD.mtdActualizar(id);
             return actu;
         }
 
