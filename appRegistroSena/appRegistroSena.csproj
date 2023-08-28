@@ -253,6 +253,7 @@
     <Content Include="Vista\css\Estilos_RegistrarPrograma.css" />
     <Content Include="Vista\css\Index.css" />
     <Content Include="Vista\css\Login.css" />
+    <Content Include="Vista\css\PaginaInicio.css" />
     <Content Include="Vista\css\RegistrarPersonal.css" />
     <Content Include="Vista\css\sweetalert.css" />
     <Content Include="Vista\Imagenes\centro.jpg" />
@@ -269,13 +270,16 @@
     <Content Include="Vista\JavaScript\jquery-3.6.0.js" />
     <Content Include="Vista\JavaScript\sweetalert-dev.js" />
     <Content Include="Vista\JavaScript\sweetalert.min.js" />
+    <Content Include="Vista\JavaScript\tablaAprendices.js" />
     <Content Include="Vista\ListaInstructores.aspx" />
     <Content Include="Vista\ListaAprendices.aspx" />
     <Content Include="Vista\lis.aspx" />
     <Content Include="Vista\ListaProgramas.aspx" />
+    <Content Include="Vista\ListarAprendices.aspx" />
     <Content Include="Vista\ListaRegistrosRealizados.aspx" />
     <Content Include="Vista\ListaVigilantes.aspx" />
     <Content Include="Vista\Login.aspx" />
+    <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\PrincipalAdministrador.aspx" />
     <Content Include="Vista\RegistrarPersonal.aspx" />
     <Content Include="Vista\RegistrarUsuarios.aspx" />
@@ -361,6 +365,7 @@
     <Compile Include="Vista\ListaInstructores.aspx.designer.cs">
       <DependentUpon>ListaInstructores.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="Vista\ListaAprendices.aspx.cs">
       <DependentUpon>ListaAprendices.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -381,6 +386,14 @@
     </Compile>
     <Compile Include="Vista\ListaProgramas.aspx.designer.cs">
       <DependentUpon>ListaProgramas.aspx</DependentUpon>
+
+    <Compile Include="Vista\ListarAprendices.aspx.cs">
+      <DependentUpon>ListarAprendices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListarAprendices.aspx.designer.cs">
+      <DependentUpon>ListarAprendices.aspx</DependentUpon>
+
     </Compile>
     <Compile Include="Vista\ListaRegistrosRealizados.aspx.cs">
       <DependentUpon>ListaRegistrosRealizados.aspx</DependentUpon>
@@ -409,6 +422,13 @@
     </Compile>
     <Compile Include="Vista\NavbarIndex.Master.designer.cs">
       <DependentUpon>NavbarIndex.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Principal.aspx.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Principal.aspx.designer.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
