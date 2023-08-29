@@ -23,6 +23,13 @@ namespace appRegistroSena.Logica
             return listaTable;
         }
 
+        public List<ClRegistroE> mtdListaRegistros()
+        {
+            ClRegistroD objRegistroD = new ClRegistroD();
+            List<ClRegistroE> listaTable = objRegistroD.mtdListaRegistros();
+            return listaTable;
+        }
+
         //public List<ClRegistroE> mtdRegistroCodigo(int idRegistro)
         //{
         //    ClRegistroD objRegistroD = new ClRegistroD();
@@ -42,6 +49,13 @@ namespace appRegistroSena.Logica
             ClRegistroD objPersonalD = new ClRegistroD();
             int Eliminar = objPersonalD.mtdEliminar(objDatos);
             return Eliminar;
+        }
+
+        public List<ClRegistroE> mtdBuscarRegistro(string busqueda)
+        {
+            ClRegistroD objProf = new ClRegistroD();
+            List<ClRegistroE> lista = objProf.mtdBuscarRegistros(busqueda);
+            return lista;
         }
     }
 }
