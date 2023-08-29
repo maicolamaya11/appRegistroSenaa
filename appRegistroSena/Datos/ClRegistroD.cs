@@ -116,7 +116,7 @@ namespace appRegistroSena.Datos
             ProcesarSQL objSQL = new ProcesarSQL();
             SqlCommand Actualizar = objSQL.mtdPrceso(ProcesosAlmacenado);
 
-            Actualizar.Parameters.AddWithValue("@idRegistro",id);
+            Actualizar.Parameters.AddWithValue("@idRegistro", id);
 
 
             //string actualizar = "Update Registro set codigo = '" + objDatos.codigo + "', estado = '"+objDatos.estado+"', fechaIngreso = '"+objDatos.fechaIngreso+"'," +
@@ -152,6 +152,78 @@ namespace appRegistroSena.Datos
 
             int DatosActualizar = Eliminar.ExecuteNonQuery();
             return DatosActualizar;
+
+        }
+
+        public List<ClRegistroE> mtdListaRegistros()
+        {
+
+            string Consulta = "SELECT idRegistro, codigo, Usuario.documento, Registro.estado, Ingreso.fechaIngreso, Ingreso.horaIngreso, Salida.fechaSalida," +
+                " Salida.horaSalida, Porteria.nombrePorteria,Personal.documento AS documentoPer FROM Registro JOIN Ingreso " +
+                "ON Ingreso.idIngreso = Registro.idIngreso  JOIN Salida ON Salida.idSalida = Registro.idSalida  JOIN Personal " +
+                "ON Personal.idPersonal = Registro.idPersonal JOIN Porteria ON Porteria.idPorteria = Registro.idPorteria " +
+                "JOIN Usuario ON Usuario.idUsuario = Registro.idUsuario";
+
+            ProcesarSQL objSQL = new ProcesarSQL();
+            DataTable tblListarPersonal = objSQL.mtdSelectDesc(Consulta);
+            //DataTable tblListarRegistros = objSQL.mtdSelectDesc(Consulta);
+            List<ClRegistroE> ListarRegistros = new List<ClRegistroE>();
+            for (int i = 0; i < tblListarPersonal.Rows.Count; i++)
+            {
+                ClRegistroE objRegistrosE = new ClRegistroE();
+
+                objRegistrosE.idRegistro = int.Parse(tblListarPersonal.Rows[i]["idRegistro"].ToString());
+                objRegistrosE.codigo = tblListarPersonal.Rows[i]["codigo"].ToString();
+                objRegistrosE.estado = tblListarPersonal.Rows[i]["estado"].ToString();
+                objRegistrosE.fechaIngreso = tblListarPersonal.Rows[i]["fechaIngreso"].ToString();
+                objRegistrosE.horaIngreso = tblListarPersonal.Rows[i]["horaIngreso"].ToString();
+                objRegistrosE.fechaSalida = tblListarPersonal.Rows[i]["fechaSalida"].ToString();
+                objRegistrosE.horaSalida = tblListarPersonal.Rows[i]["horaSalida"].ToString();
+                objRegistrosE.documentoPerson = tblListarPersonal.Rows[i]["documentoPer"].ToString();
+                objRegistrosE.nombrePort = tblListarPersonal.Rows[i]["nombrePorteria"].ToString();
+                objRegistrosE.documentoUsua = tblListarPersonal.Rows[i]["documento"].ToString();
+
+                ListarRegistros.Add(objRegistrosE);
+
+
+            }
+            return ListarRegistros;
+
+        }
+
+        public List<ClRegistroE> mtdBuscarRegistros(string busqueda)
+        {
+
+            string Consulta = "SELECT idRegistro, codigo, Personal.documento, Registro.estado, Ingreso.fechaIngreso, Ingreso.horaIngreso, Salida.fechaSalida," +
+                " Salida.horaSalida, Usuario.documento, Porteria.nombrePorteria,Usuario.documento FROM Registro JOIN Ingreso " +
+                "ON Ingreso.idIngreso = Registro.idIngreso  JOIN Salida ON Salida.idSalida = Registro.idSalida  JOIN Personal " +
+                "ON Personal.idPersonal = Registro.idPersonal JOIN Porteria ON Porteria.idPorteria = Registro.idPorteria " +
+                "JOIN Usuario ON Usuario.idUsuario = Registro.idUsuario WHERE (fechaIngreso LIKE '"+busqueda+"')";
+
+            ProcesarSQL objSQL = new ProcesarSQL();
+            DataTable tblListarPersonal = objSQL.mtdSelectDesc(Consulta);
+            //DataTable tblListarRegistros = objSQL.mtdSelectDesc(Consulta);
+            List<ClRegistroE> ListarRegistros = new List<ClRegistroE>();
+            for (int i = 0; i < tblListarPersonal.Rows.Count; i++)
+            {
+                ClRegistroE objRegistrosE = new ClRegistroE();
+
+                objRegistrosE.idRegistro = int.Parse(tblListarPersonal.Rows[i]["idRegistro"].ToString());
+                objRegistrosE.codigo = tblListarPersonal.Rows[i]["codigo"].ToString();
+                objRegistrosE.estado = tblListarPersonal.Rows[i]["estado"].ToString();
+                objRegistrosE.fechaIngreso = tblListarPersonal.Rows[i]["fechaIngreso"].ToString();
+                objRegistrosE.horaIngreso = tblListarPersonal.Rows[i]["horaIngreso"].ToString();
+                objRegistrosE.fechaSalida = tblListarPersonal.Rows[i]["fechaSalida"].ToString();
+                objRegistrosE.horaSalida = tblListarPersonal.Rows[i]["horaSalida"].ToString();
+                objRegistrosE.documentoPerson = tblListarPersonal.Rows[i]["documento"].ToString();
+                objRegistrosE.nombrePort = tblListarPersonal.Rows[i]["nombrePorteria"].ToString();
+                objRegistrosE.documentoUsua = tblListarPersonal.Rows[i]["documento"].ToString();
+
+                ListarRegistros.Add(objRegistrosE);
+
+
+            }
+            return ListarRegistros;
 
         }
     }

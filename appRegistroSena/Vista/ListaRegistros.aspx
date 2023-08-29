@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Coordinador.Master" AutoEventWireup="true" CodeBehind="ListaVigilantes.aspx.cs" Inherits="appRegistroSena.Vista.ListaVigilantes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Coordinador.Master" AutoEventWireup="true" CodeBehind="ListaRegistros.aspx.cs" Inherits="appRegistroSena.Vista.ListaRegistros" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/Estilos_RegistrarInstruc.css" rel="stylesheet" />
@@ -10,7 +10,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <h1 class="titulo-h1">LISTADO VIGILANTES</h1>
+    <h1 class="titulo-h1">LISTADO REGISTROS</h1>
     <section>
         <div class="input-box" style="margin-left:800px">
             <i>
@@ -19,28 +19,30 @@
                 </svg>
             </i>
             <input id="txtBusqueda" runat="server" type="text" placeholder="Buscar..." />
-            <asp:Button ID="btnGuardar" class="button" runat="server" Text="Buscar" Style="width: 30%; height: 81%; right: 4px;" OnClick="btnGuardar_Click"/>
+            <asp:Button ID="btnGuardar" class="button" runat="server" Text="Buscar" Style="width: 30%; height: 81%; right: 4px;" OnClick="btnGuardar_Click1" />
         </div>
     </section>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="UpdatePanel1" style="margin-left: 190px;" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel1" style="margin-left: 80px;" runat="server">
         <ContentTemplate>
-            <asp:GridView ID="gvVigilante" runat="server" DataKeyNames="idPersonal" AutoGenerateColumns="False" Style="width: 70%; text-align: center; margin-left: 190px; margin-top: 49px;" CssClass="styled-table">
+            <asp:GridView ID="gvRegistro" runat="server" DataKeyNames="idRegistro" AutoGenerateColumns="False" Style="width: 70%; text-align: center; margin-left: 300px; margin-top: 49px;" CssClass="styled-table">
                 <HeaderStyle CssClass="styled-header" BackColor="#2E7D32" ForeColor="white" />
                 <AlternatingRowStyle CssClass="alternate-row" BackColor="#A5D6A7" />
                 <RowStyle CssClass="normal-row" BackColor="#E8F5E9" />
                 <Columns>
-                    <asp:BoundField DataField="idPersonal" HeaderText="ID de Usuario" Visible="false" />
-                    <asp:BoundField DataField="nombres" HeaderText="Nombres" />
-                    <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
-                    <asp:BoundField DataField="documento" HeaderText="Documento" />
+                    <asp:BoundField DataField="idRegistro" HeaderText="ID de Usuario" Visible="false" />
+                    <asp:BoundField DataField="codigo" HeaderText="Código" />
+                    <asp:BoundField DataField="fechaIngreso" HeaderText="Fecha Ingreso" />
+                    <asp:BoundField DataField="nombrePort" HeaderText="Porteria" />
+                    <asp:BoundField DataField="documentoUsua" HeaderText="Documento Vigilante" />
+                    <asp:BoundField DataField="documentoPerson" HeaderText="Documento Usuario" />
                 </Columns>
             </asp:GridView>
         </ContentTemplate>
     </asp:UpdatePanel>
     <br />
     <br />
-    <asp:Button ID="btnImprimir" runat="server" CssClass="btn-imprimir" Text="Imprimir Reporte" Style="margin-left: 700px;" OnClick="btnImprimir_Click"/>
+    <asp:Button ID="btnImprimir" runat="server" CssClass="btn-imprimir" Text="Imprimir Reporte" Style="margin-left: 700px;" OnClick="btnImprimir_Click1"/>
 
 
 

@@ -12,7 +12,7 @@
     <br />
     <h1 class="titulo-h1">LISTADO INSTRUCTORES</h1>
     <section>
-        <div class="input-box">
+        <div class="input-box" style="margin-left:800px">
             <i>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -25,7 +25,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" style="margin-left: 190px;" runat="server">
         <ContentTemplate>
-            <asp:GridView ID="gvInstructor" runat="server" DataKeyNames="idUsuario" AutoGenerateColumns="False" Style="width: 70%; text-align: center; margin-left: 300px; margin-top: 49px;" CssClass="styled-table">
+            <asp:GridView ID="gvInstructor" runat="server" DataKeyNames="idUsuario" AutoGenerateColumns="False" Style="width: 70%; text-align: center; margin-left: 190px; margin-top: 49px;" CssClass="styled-table">
                 <HeaderStyle CssClass="styled-header" BackColor="#2E7D32" ForeColor="white" />
                 <AlternatingRowStyle CssClass="alternate-row" BackColor="#A5D6A7" />
                 <RowStyle CssClass="normal-row" BackColor="#E8F5E9" />
@@ -45,7 +45,7 @@
     </asp:UpdatePanel>
     <br />
     <br />
-    <asp:Button ID="btnImprimir" runat="server" CssClass="btn-imprimir" Text="Imprimir Reporte" Style="margin-left: 800px;" OnClick="btnImprimir_Click" />
+    <asp:Button ID="btnImprimir" runat="server" CssClass="btn-imprimir" Text="Imprimir Reporte" Style="margin-left: 700px;" OnClick="btnImprimir_Click" />
 
 
 

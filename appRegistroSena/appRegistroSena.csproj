@@ -278,6 +278,7 @@
     <Content Include="Vista\JavaScript\sweetalert.min.js" />
     <Content Include="Vista\JavaScript\tablaAprendices.js" />
     <Content Include="Vista\ListaInstructores.aspx" />
+    <Content Include="Vista\ListaRegistros.aspx" />
     <Content Include="Vista\ListarInstructores.aspx" />
     <Content Include="Vista\ListaAprendices.aspx" />
     <Content Include="Vista\lis.aspx" />
@@ -297,6 +298,7 @@
     <Content Include="Vista\ReporteAprendiz.aspx" />
     <Content Include="Vista\ReporteInstructor.aspx" />
     <Content Include="Vista\ReportePrograma.aspx" />
+    <Content Include="Vista\ReporteRegistro.aspx" />
     <Content Include="Vista\ReporteVigilante.aspx" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert-dev.js" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert.min.js" />
@@ -385,6 +387,13 @@
     </Compile>
     <Compile Include="Vista\ListaInstructores.aspx.designer.cs">
       <DependentUpon>ListaInstructores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ListaRegistros.aspx.cs">
+      <DependentUpon>ListaRegistros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListaRegistros.aspx.designer.cs">
+      <DependentUpon>ListaRegistros.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\ListarInstructores.aspx.cs">
       <DependentUpon>ListarInstructores.aspx</DependentUpon>
@@ -568,6 +577,13 @@
     <Compile Include="Vista\ReportePrograma.aspx.designer.cs">
       <DependentUpon>ReportePrograma.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\ReporteRegistro.aspx.cs">
+      <DependentUpon>ReporteRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ReporteRegistro.aspx.designer.cs">
+      <DependentUpon>ReporteRegistro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\ReporteVigilante.aspx.cs">
       <DependentUpon>ReporteVigilante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -619,6 +635,7 @@
     <EmbeddedResource Include="Report.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportAprendiz.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportInstructor.rdlc" />
+    <EmbeddedResource Include="Vista\Reportes\ReportRegistro.rdlc" />
     <EmbeddedResource Include="Vista\Reportes\ReportVigilante.rdlc" />
   </ItemGroup>
   <ItemGroup>
